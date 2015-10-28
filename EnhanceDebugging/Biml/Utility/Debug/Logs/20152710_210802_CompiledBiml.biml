@@ -1,0 +1,256 @@
+<Biml>
+  <Packages>
+    <Package Name="BimlPackage" ConstraintMode="Linear">
+      <Variables>
+        <Variable Name="execsObj" DataType="Object">
+        </Variable>
+        <Variable Name="lineageIds" DataType="Object">
+        </Variable>
+      </Variables>
+      <Tasks>
+        <Script Name="(SCR) GetLineageIds" ProjectCoreName="sp_17276b02c1b54d128b5b78cf6605d17d">
+          <ScriptTaskProject>
+            <ScriptTaskProject Name="(SCR)_GetLineageIds" ProjectCoreName="sp_537370948672477bafe4a92190ff6a22">
+              <AssemblyReferences>
+                <AssemblyReference AssemblyPath="Microsoft.SqlServer.ManagedDTS.dll" />
+                <AssemblyReference AssemblyPath="Microsoft.SqlServer.DTSPipelineWrap.dll" />
+                <AssemblyReference AssemblyPath="Microsoft.SqlServer.ScriptTask.dll" />
+                <AssemblyReference AssemblyPath="System.dll" />
+                <AssemblyReference AssemblyPath="System.Data.dll" />
+                <AssemblyReference AssemblyPath="System.Windows.Forms.dll" />
+                <AssemblyReference AssemblyPath="System.Xml.dll" />
+              </AssemblyReferences>
+              <Files>
+                <File Path="ScriptMain.cs">
+                    
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using System.IO;
+
+[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+{
+ 
+Dictionary&lt;int, string&gt; lineageIds = null;
+
+public void Main()
+{
+    Dts.Variables["User::execsObj"].Value = ((Package)Dts.Variables["User::execsObj"].Parent).Executables;
+    Dts.Variables["User::lineageIds"].Value = new Dictionary&lt;int, string&gt;();
+    lineageIds = (Dictionary&lt;int, string&gt;)Dts.Variables["User::lineageIds"].Value;
+    Executables execs = (Executables)Dts.Variables["User::execsObj"].Value;
+
+    ReadExecutables(execs);
+
+    using (StreamWriter writetext = new StreamWriter(@"C:\temp\write.txt", true))
+    {
+        foreach (var kvp in lineageIds)
+            writetext.WriteLine(kvp.Key + " : " + kvp.Value);
+    }
+    Dts.TaskResult = (int)ScriptResults.Success;
+}
+
+private void ReadExecutables(Executables executables)
+{
+    foreach (Executable pkgExecutable in executables)
+    {
+        if (object.ReferenceEquals(pkgExecutable.GetType(), typeof(Microsoft.SqlServer.Dts.Runtime.TaskHost)))
+        {
+            TaskHost pkgExecTaskHost = (TaskHost)pkgExecutable;
+            if (pkgExecTaskHost.CreationName.StartsWith("SSIS.Pipeline"))
+            {
+                ProcessDataFlowTask(pkgExecTaskHost);
+            }
+        }
+        else if (object.ReferenceEquals(pkgExecutable.GetType(), typeof(Microsoft.SqlServer.Dts.Runtime.ForEachLoop)))
+        {
+            // Recurse into FELCs
+            ReadExecutables(((ForEachLoop)pkgExecutable).Executables);
+        }
+    }
+}
+
+private void ProcessDataFlowTask(TaskHost currentDataFlowTask)
+{
+    MainPipe currentDataFlow = (MainPipe)currentDataFlowTask.InnerObject;
+    foreach (IDTSComponentMetaData100 currentComponent in currentDataFlow.ComponentMetaDataCollection)
+    {
+        // Get the inputs in the component.
+        foreach (IDTSInput100 currentInput in currentComponent.InputCollection)
+            foreach (IDTSInputColumn100 currentInputColumn in currentInput.InputColumnCollection)
+                lineageIds.Add(currentInputColumn.ID, currentInputColumn.Name);
+
+        // Get the outputs in the component.
+        foreach (IDTSOutput100 currentOutput in currentComponent.OutputCollection)
+            foreach (IDTSOutputColumn100 currentoutputColumn in currentOutput.OutputColumnCollection)
+                lineageIds.Add(currentoutputColumn.ID, currentoutputColumn.Name);
+    }
+}
+
+enum ScriptResults
+{
+    Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+    Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+};
+}
+                  </File>
+              </Files>
+              <ReadWriteVariables>
+                <Variable VariableName="execsObj" DataType="Object" Namespace="User" />
+                <Variable VariableName="lineageIds" DataType="Object" Namespace="User" />
+              </ReadWriteVariables>
+            </ScriptTaskProject>
+          </ScriptTaskProject>
+        </Script>
+        <Dataflow Name="(DFT) Read FlatFile">
+          <Transformations>
+            <FlatFileSource Name="(FFSRC) Accts" RetainNulls="true" />
+            <DerivedColumns Name="(DCO) AddData">
+              <Columns>
+                <Column Name="ReadDate" DataType="DateTime">GETDATE()</Column>
+                <Column Name="ReadYear" DataType="Int32">YEAR(GETDATE())</Column>
+              </Columns>
+            </DerivedColumns>
+            <DataConversion Name="(DCNV) ConvertToTargetType">
+              <ErrorHandling ErrorRowDisposition="RedirectRow" TruncationRowDisposition="RedirectRow" />
+              <Columns>
+                <Column SourceColumn="Acct_Num" TargetColumn="dc.Acct_Num" DataType="Int32" />
+                <Column SourceColumn="Description" TargetColumn="dc.Description" DataType="AnsiString" Length="50" CodePage="1252" />
+                <Column SourceColumn="Balance" TargetColumn="dc.Balance" DataType="Decimal" Precision="18" Scale="2" />
+                <Column SourceColumn="AsOfDate" TargetColumn="dc.AsOfDate" DataType="Date" />
+                <Column SourceColumn="ReadDate" TargetColumn="dc.ReadDate" DataType="DateTime" />
+                <Column SourceColumn="ReadYear" TargetColumn="dc.ReadYear" DataType="Int32" />
+              </Columns>
+            </DataConversion>
+            <FlatFileDestination Name="(FFDST) Accts_Success" />
+            <ScriptComponentTransformation Name="(SCMP) GetErrorColNameDesc" ProjectCoreName="sp_0c0070350b034a63ab0707f53f418b94">
+              <InputPath OutputPathName="(DCNV) ConvertToTargetType.Error" />
+              <ScriptComponentProject>
+                <ScriptComponentProject Name="SCMP_GetErrorColNameDesc" ProjectCoreName="sp_f751486596364ff1a6cc10c3f22aab8a">
+                  <AssemblyReferences>
+                    <AssemblyReference AssemblyPath="Microsoft.SqlServer.DTSPipelineWrap.dll" />
+                    <AssemblyReference AssemblyPath="Microsoft.SqlServer.DTSRuntimeWrap.dll" />
+                    <AssemblyReference AssemblyPath="Microsoft.SqlServer.PipelineHost.dll" />
+                    <AssemblyReference AssemblyPath="Microsoft.SqlServer.TxScript.dll" />
+                    <AssemblyReference AssemblyPath="System.dll" />
+                    <AssemblyReference AssemblyPath="System.AddIn.dll" />
+                    <AssemblyReference AssemblyPath="System.Data.dll" />
+                    <AssemblyReference AssemblyPath="System.Xml.dll" />
+                  </AssemblyReferences>
+                  <Files>
+                    <File Path="main.cs">
+                         
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using System.Collections.Generic;
+
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+  
+  public override void Input0_ProcessInputRow(Input0Buffer Row)
+  {
+      Dictionary&lt;int, string&gt; lineageIds = (Dictionary&lt;int, string&gt;)Variables.lineageIds;
+
+      int? colNum = Row.ErrorColumn;
+      if (colNum.HasValue &amp;&amp; (lineageIds != null))
+      {
+          if (lineageIds.ContainsKey(colNum.Value))
+              Row.ErrorColumnName = lineageIds[colNum.Value];
+
+          else
+              Row.ErrorColumnName = "Row error";
+      }
+      Row.ErrorDescription = this.ComponentMetaData.GetErrorDescription(Row.ErrorCode);
+  }
+}
+                      </File>
+                  </Files>
+                  <ReadOnlyVariables>
+                    <Variable VariableName="lineageIds" DataType="Object" Namespace="User" />
+                  </ReadOnlyVariables>
+                  <OutputBuffers>
+                    <OutputBuffer Name="Output0">
+                      <Columns>
+                        <Column Name="ErrorColumnName" Length="255" DataType="AnsiString" />
+                        <Column Name="ErrorDescription" Length="255" DataType="AnsiString" />
+                      </Columns>
+                    </OutputBuffer>
+                  </OutputBuffers>
+                  <InputBuffer Name="Input0">
+                    <Columns>
+                      <Column Name="ErrorCode" />
+                      <Column Name="ErrorColumn" />
+                    </Columns>
+                  </InputBuffer>
+                </ScriptComponentProject>
+              </ScriptComponentProject>
+            </ScriptComponentTransformation>
+            <FlatFileDestination Name="(FFDST) Accts_Errors" />
+          </Transformations>
+        </Dataflow>
+      </Tasks>
+    </Package>
+  </Packages>
+  <FileFormats>
+    <FlatFileFormat Name="FFF_AcctsSRC" TextQualifer="&quot;" HeaderRowDelimiter="{LF}" ColumnNamesInFirstDataRow="true" RowDelimiter="LF" IsUnicode="false">
+      <Annotations>
+        <Annotation Tag="FriendlyFileName">Accts</Annotation>
+        <Annotation Tag="FriendlyFileFormatName">FFF_AcctsSRC</Annotation>
+        <Annotation Tag="FileType">txt</Annotation>
+      </Annotations>
+      <Columns>
+        <Column Name="Acct_Num" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Description" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Balance" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="AsOfDate" Length="255" DataType="AnsiString" Delimiter="LF" />
+      </Columns>
+    </FlatFileFormat>
+    <FlatFileFormat Name="FFF_AcctsDST_Success" TextQualifer="&quot;" HeaderRowDelimiter="{LF}" ColumnNamesInFirstDataRow="true" RowDelimiter="LF" IsUnicode="false">
+      <Annotations>
+        <Annotation Tag="FriendlyFileName">AcctsDST_Success</Annotation>
+        <Annotation Tag="FriendlyFileFormatName">FFF_AcctsDST_Success</Annotation>
+        <Annotation Tag="FileType">txt</Annotation>
+      </Annotations>
+      <Columns>
+        <Column Name="Acct_Num" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Description" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Balance" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="AsOfDate" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="ReadDate" DataType="DateTime" Delimiter="Tab" />
+        <Column Name="ReadYear" Delimiter="Tab" />
+        <Column Name="dc.Acct_Num" Delimiter="Tab" />
+        <Column Name="dc.Description" Length="50" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="dc.Balance" Precision="18" Scale="2" DataType="Decimal" Delimiter="Tab" />
+        <Column Name="dc.AsOfDate" DataType="Date" Delimiter="Tab" />
+        <Column Name="dc.ReadDate" DataType="DateTime" Delimiter="Tab" />
+        <Column Name="dc.ReadYear" Delimiter="LF" />
+      </Columns>
+    </FlatFileFormat>
+    <FlatFileFormat Name="FFF_AcctsDST_Errors" TextQualifer="&quot;" HeaderRowDelimiter="{LF}" ColumnNamesInFirstDataRow="true" RowDelimiter="LF" IsUnicode="false">
+      <Annotations>
+        <Annotation Tag="FriendlyFileName">AcctsDST_Errors</Annotation>
+        <Annotation Tag="FriendlyFileFormatName">FFF_AcctsDST_Errors</Annotation>
+        <Annotation Tag="FileType">txt</Annotation>
+      </Annotations>
+      <Columns>
+        <Column Name="Acct_Num" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Description" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Balance" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="AsOfDate" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="ReadDate" DataType="DateTime" Delimiter="Tab" />
+        <Column Name="ReadYear" Delimiter="Tab" />
+        <Column Name="ErrorCode" Delimiter="Tab" />
+        <Column Name="ErrorColumn" Delimiter="Tab" />
+        <Column Name="ErrorColumnName" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="ErrorDescription" Length="255" DataType="AnsiString" Delimiter="LF" />
+      </Columns>
+    </FlatFileFormat>
+  </FileFormats>
+</Biml>

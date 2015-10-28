@@ -1,0 +1,62 @@
+<Biml>
+  <Connections>
+    <FlatFileConnection Name="FF_Accts" DelayValidation="true" FilePath="Y:\Learning\EnhanceDebugging\EnhanceDebugging\FlatFile\Accts.txt" FileFormat="FFF_AcctsSRC" />
+    <FlatFileConnection Name="FF_AcctsDST_Success" DelayValidation="true" FilePath="Y:\Learning\EnhanceDebugging\EnhanceDebugging\FlatFile\AcctsDST_Success.txt" FileFormat="FFF_AcctsDST_Success" />
+    <FlatFileConnection Name="FF_AcctsDST_Errors" DelayValidation="true" FilePath="Y:\Learning\EnhanceDebugging\EnhanceDebugging\FlatFile\AcctsDST_Errors.txt" FileFormat="FFF_AcctsDST_Errors" />
+  </Connections>
+  <FileFormats>
+    <FlatFileFormat Name="FFF_AcctsSRC" TextQualifer="&quot;" HeaderRowDelimiter="{LF}" ColumnNamesInFirstDataRow="true" RowDelimiter="LF" IsUnicode="false">
+      <Annotations>
+        <Annotation Tag="FriendlyFileName">Accts</Annotation>
+        <Annotation Tag="FriendlyFileFormatName">FFF_AcctsSRC</Annotation>
+        <Annotation Tag="FileType">txt</Annotation>
+      </Annotations>
+      <Columns>
+        <Column Name="Acct_Num" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Description" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Balance" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="AsOfDate" Length="255" DataType="AnsiString" Delimiter="LF" />
+      </Columns>
+    </FlatFileFormat>
+    <FlatFileFormat Name="FFF_AcctsDST_Success" TextQualifer="&quot;" HeaderRowDelimiter="{LF}" ColumnNamesInFirstDataRow="true" RowDelimiter="LF" IsUnicode="false">
+      <Annotations>
+        <Annotation Tag="FriendlyFileName">AcctsDST_Success</Annotation>
+        <Annotation Tag="FriendlyFileFormatName">FFF_AcctsDST_Success</Annotation>
+        <Annotation Tag="FileType">txt</Annotation>
+      </Annotations>
+      <Columns>
+        <Column Name="Acct_Num" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Description" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Balance" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="AsOfDate" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="ReadDate" DataType="DateTime" Delimiter="Tab" />
+        <Column Name="ReadYear" Delimiter="Tab" />
+        <Column Name="dc.Acct_Num" Delimiter="Tab" />
+        <Column Name="dc.Description" Length="50" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="dc.Balance" Precision="18" Scale="2" DataType="Decimal" Delimiter="Tab" />
+        <Column Name="dc.AsOfDate" DataType="Date" Delimiter="Tab" />
+        <Column Name="dc.ReadDate" DataType="DateTime" Delimiter="Tab" />
+        <Column Name="dc.ReadYear" Delimiter="LF" />
+      </Columns>
+    </FlatFileFormat>
+    <FlatFileFormat Name="FFF_AcctsDST_Errors" TextQualifer="&quot;" HeaderRowDelimiter="{LF}" ColumnNamesInFirstDataRow="true" RowDelimiter="LF" IsUnicode="false">
+      <Annotations>
+        <Annotation Tag="FriendlyFileName">AcctsDST_Errors</Annotation>
+        <Annotation Tag="FriendlyFileFormatName">FFF_AcctsDST_Errors</Annotation>
+        <Annotation Tag="FileType">txt</Annotation>
+      </Annotations>
+      <Columns>
+        <Column Name="Acct_Num" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Description" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="Balance" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="AsOfDate" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="ReadDate" DataType="DateTime" Delimiter="Tab" />
+        <Column Name="ReadYear" Delimiter="Tab" />
+        <Column Name="ErrorCode" Delimiter="Tab" />
+        <Column Name="ErrorColumn" Delimiter="Tab" />
+        <Column Name="ErrorColumnName" Length="255" DataType="AnsiString" Delimiter="Tab" />
+        <Column Name="ErrorDescription" Length="255" DataType="AnsiString" Delimiter="LF" />
+      </Columns>
+    </FlatFileFormat>
+  </FileFormats>
+</Biml>

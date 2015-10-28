@@ -1,0 +1,45 @@
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Runtime.CompilerServices" #>
+<#@ include file="..\..\Config.csbiml" #>
+
+<#+
+    public static class Debug
+    {
+        private static void Write(string str, string path)
+        {
+            if (!File.Exists(path))
+                using (StreamWriter sw = File.CreateText(path))
+                    sw.WriteLine(str);
+            else 
+              using (StreamWriter sw = File.AppendText(path))
+                  sw.WriteLine(str);
+        }
+
+        private static string GetFilenameAndTimePrintable(string file)
+        {
+          return System.DateTime.Now.ToString("yyyyddMM_HHmmss") + "|" + System.IO.Path.GetFileName(file) + "|  ";
+        }
+
+        public static void WriteLine(string str, [CallerFilePath] string file = "")
+        {
+           Write(GetFilenameAndTimePrintable(file) + str, Config.LogFile);
+        }
+
+        public static void WriteError(string str, [CallerFilePath] string file = "")
+        {
+           Write(GetFilenameAndTimePrintable(file) + "<ERROR>  |  " + str, Config.LogFile);
+        }
+
+        public static void BimlDump(string str, [CallerFilePath] string file = "")
+        {
+           var filename = System.IO.Path.GetFileName(file);
+           var debugBimlFile = Config.DebugRoot + @"Logs\" + System.DateTime.Now.ToString("yyyyddMM_HHmmss") + "_" + filename;
+           WriteError("Exception in BIML.  Dump written to " + debugBimlFile, filename);
+           Write(str, debugBimlFile);
+        }
+    }
+#>
