@@ -1,0 +1,20 @@
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+
+<#+
+    public static class Config
+    {
+        public static string BimlRoot = @"Y:\Learning\EnhanceDebugging\EnhanceDebugging\Biml\"; 
+
+        // Debug Settings
+        public static string DebugRoot = BimlRoot + @"Utility\Debug\";
+        public static string LogFile = DebugRoot + @"\Logs\biml.log";
+
+        // Compiled BIML Setting (these are not the Exception Dumps - those go straight to your Debug\Logs folder)
+        public static string CompiledBimlFile = DebugRoot + @"Logs\" + System.DateTime.Now.ToString("yyyyddMM_HHmmss") + "_CompiledBiml.biml";
+        public static string CompileBimlScript = DebugRoot + @"SaveBiml.biml";
+        public static bool SaveCompiledBiml = true;
+    }
+#>

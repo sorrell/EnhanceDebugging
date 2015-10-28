@@ -1,0 +1,28 @@
+<![CDATA[ 
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using System.Collections.Generic;
+
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+  
+  public override void Input0_ProcessInputRow(Input0Buffer Row)
+  {
+      Dictionary<int, string> lineageIds = (Dictionary<int, string>)Variables.lineageIds;
+
+      int? colNum = Row.ErrorColumn;
+      if (colNum.HasValue && (lineageIds != null))
+      {
+          if (lineageIds.ContainsKey(colNum.Value))
+              Row.ErrorColumnName = lineageIds[colNum.Value];
+
+          else
+              Row.ErrorColumnName = "Row error";
+      }
+      Row.ErrorDescription = this.ComponentMetaData.GetErrorDescription(Row.ErrorCode);
+  }
+}
+]]>

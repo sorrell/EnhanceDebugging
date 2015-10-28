@@ -1,0 +1,10 @@
+<#@ include file="Biml\Utility\Debug\Debug.csbiml" #>
+<#@ template tier="1" #>
+
+<#
+    string landingFolder = @"Y:\Learning\EnhanceDebugging\EnhanceDebugging\FlatFile\";
+    Dictionary<string, string> AuditColumns = new Dictionary<string, string>()
+      {
+        {"ReadDate", @"Name='ReadDate' DataType='DateTime'"},
+      };
+#>

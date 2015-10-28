@@ -1,0 +1,76 @@
+ <![CDATA[
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using System.IO;
+
+[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+{
+ 
+Dictionary<int, string> lineageIds = null;
+
+public void Main()
+{
+    Dts.Variables["User::execsObj"].Value = ((Package)Dts.Variables["User::execsObj"].Parent).Executables;
+    Dts.Variables["User::lineageIds"].Value = new Dictionary<int, string>();
+    lineageIds = (Dictionary<int, string>)Dts.Variables["User::lineageIds"].Value;
+    Executables execs = (Executables)Dts.Variables["User::execsObj"].Value;
+
+    ReadExecutables(execs);
+
+    using (StreamWriter writetext = new StreamWriter(@"C:\temp\write.txt", true))
+    {
+        foreach (var kvp in lineageIds)
+            writetext.WriteLine(kvp.Key + " : " + kvp.Value);
+    }
+    Dts.TaskResult = (int)ScriptResults.Success;
+}
+
+private void ReadExecutables(Executables executables)
+{
+    foreach (Executable pkgExecutable in executables)
+    {
+        if (object.ReferenceEquals(pkgExecutable.GetType(), typeof(Microsoft.SqlServer.Dts.Runtime.TaskHost)))
+        {
+            TaskHost pkgExecTaskHost = (TaskHost)pkgExecutable;
+            if (pkgExecTaskHost.CreationName.StartsWith("SSIS.Pipeline"))
+            {
+                ProcessDataFlowTask(pkgExecTaskHost);
+            }
+        }
+        else if (object.ReferenceEquals(pkgExecutable.GetType(), typeof(Microsoft.SqlServer.Dts.Runtime.ForEachLoop)))
+        {
+            // Recurse into FELCs
+            ReadExecutables(((ForEachLoop)pkgExecutable).Executables);
+        }
+    }
+}
+
+private void ProcessDataFlowTask(TaskHost currentDataFlowTask)
+{
+    MainPipe currentDataFlow = (MainPipe)currentDataFlowTask.InnerObject;
+    foreach (IDTSComponentMetaData100 currentComponent in currentDataFlow.ComponentMetaDataCollection)
+    {
+        // Get the inputs in the component.
+        foreach (IDTSInput100 currentInput in currentComponent.InputCollection)
+            foreach (IDTSInputColumn100 currentInputColumn in currentInput.InputColumnCollection)
+                lineageIds.Add(currentInputColumn.ID, currentInputColumn.Name);
+
+        // Get the outputs in the component.
+        foreach (IDTSOutput100 currentOutput in currentComponent.OutputCollection)
+            foreach (IDTSOutputColumn100 currentoutputColumn in currentOutput.OutputColumnCollection)
+                lineageIds.Add(currentoutputColumn.ID, currentoutputColumn.Name);
+    }
+}
+
+enum ScriptResults
+{
+    Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+    Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+};
+}
+]]>

@@ -1,0 +1,6 @@
+Acct_Num	Description	Balance	AsOfDate
+1	Bonds	2000	1/1/2015
+2	Cash	35000.17	1/1/2015
+3	Common Stock	65000.44	1/1/2015
+4	Preferred Stock	25000.23	1/1/2015
+5	Receivables	10009.66	1/1/2015

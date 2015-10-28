@@ -1,0 +1,14 @@
+<#@ template tier="99" #> 
+<#@ import namespace="Varigence.Biml.CoreLowerer.SchemaManagement"  #> 
+<#@ import namespace="System.Xml"  #> 
+<#@ include file="Biml\Config.csbiml" #>
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">  
+  <#  
+      string xBiml = RootNode.GetBiml();
+      XmlDocument xmlDoc = new XmlDocument();  
+      xmlDoc.LoadXml(xBiml);    
+      xmlDoc.Save(Config.CompiledBimlFile);  
+  #> 
+</Biml>  
+
+<!-- From http://blog.in2bi.eu/biml/viewing-or-saving-the-compiled-biml-file-s/ -->

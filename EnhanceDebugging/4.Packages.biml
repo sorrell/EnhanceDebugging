@@ -1,0 +1,140 @@
+<#@ template tier="4" #>
+<#@ include file="1.Environment.biml"#>
+
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+ <Packages>
+  <# try { 
+        Debug.WriteLine("Starting Package Creation.");
+  #>
+    <Package Name="BimlPackage" ConstraintMode="Linear" ProtectionLevel="DontSaveSensitive">
+        <Variables>
+          <Variable Name="execsObj" DataType="Object"></Variable>
+          <Variable Name="lineageIds" DataType="Object"></Variable>
+        </Variables>
+        <Tasks> 
+          <Script Name="(SCR) GetLineageIds">
+            <ScriptTaskProject>
+              <ScriptTaskProject Name="(SCR)_GetLineageIds">
+                <AssemblyReferences>
+                  <AssemblyReference AssemblyPath="Microsoft.SqlServer.ManagedDTS.dll" />
+                  <AssemblyReference AssemblyPath="Microsoft.SqlServer.DTSPipelineWrap.dll" />
+                  <AssemblyReference AssemblyPath="Microsoft.SqlServer.ScriptTask.dll" />
+                  <AssemblyReference AssemblyPath="System.dll" />
+                  <AssemblyReference AssemblyPath="System.Data.dll" />
+                  <AssemblyReference AssemblyPath="System.Windows.Forms.dll" />
+                  <AssemblyReference AssemblyPath="System.Xml.dll" />
+                </AssemblyReferences>
+                <Files>
+                  <File Path="ScriptMain.cs">
+                   <#@ include file="SCR_GetLineageIds\main.csbiml" #>
+                  </File>
+                </Files>
+                <ReadWriteVariables>
+                  <Variable Namespace="User" DataType="Object" VariableName="execsObj" />
+                  <Variable Namespace="User" DataType="Object" VariableName="lineageIds" />
+                </ReadWriteVariables>
+              </ScriptTaskProject>
+            </ScriptTaskProject>
+          </Script>
+
+          <Dataflow Name="(DFT) Read FlatFile">
+            <Transformations>
+              <FlatFileSource Name="(FFSRC) Accts" 
+                              ConnectionName="FF_Accts" 
+                              RetainNulls="true" />
+              <DerivedColumns Name="(DCO) AddData">
+                <Columns>
+                  <Column <#= AuditColumns["ReadDate"] #>>GETDATE()</Column> 
+                  <Column Name="ReadYear" DataType="Int32">YEAR(GETDATE())</Column>
+                 <#* <Column <#= AuditColumns["Filename"] #>>"MyFile"</Column> *#>
+                </Columns>
+              </DerivedColumns>
+              <DataConversion Name="(DCNV) ConvertToTargetType">
+                <ErrorHandling ErrorRowDisposition="RedirectRow" TruncationRowDisposition ="RedirectRow" />
+                <Columns>
+                  <Column SourceColumn =  "Acct_Num" 
+                          TargetColumn =  "dc.Acct_Num" 
+                          DataType =      "Int32"  />
+                  <Column SourceColumn =  "Description" 
+                          TargetColumn =  "dc.Description" 
+                          DataType =      "AnsiString" 
+                          Length =        "50" 
+                          CodePage =      "1252" />
+                  <Column SourceColumn =  "Balance" 
+                          TargetColumn =  "dc.Balance" 
+                          DataType =      "Decimal"
+                          Precision =     "18"
+                          Scale =         "2" />
+                  <Column SourceColumn =  "AsOfDate" 
+                          TargetColumn =  "dc.AsOfDate" 
+                          DataType =      "Date" />
+                  <Column SourceColumn =  "ReadDate" 
+                          TargetColumn =  "dc.ReadDate" 
+                          DataType =      "DateTime" />
+                  <Column SourceColumn =  "ReadYear" 
+                          TargetColumn =  "dc.ReadYear" 
+                          DataType =      "Int32" />
+                </Columns>
+              </DataConversion>
+              
+              <FlatFileDestination Name="(FFDST) Accts_Success"
+                                   ConnectionName="FF_AcctsDST_Success">
+                
+              </FlatFileDestination>
+
+              <ScriptComponentTransformation Name="(SCMP) GetErrorColNameDesc">
+                <InputPath OutputPathName="(DCNV) ConvertToTargetType.Error" />                        
+                <ScriptComponentProject>
+                  <ScriptComponentProject Name="SCMP_GetErrorColNameDesc">
+                    <InputBuffer Name="Input0">
+                      <Columns>
+                        <Column Name="ErrorCode" DataType="Int32" UsageType="ReadOnly"/>
+                        <Column Name="ErrorColumn" DataType="Int32" UsageType="ReadOnly"/> 
+                      </Columns>
+                    </InputBuffer>
+                    <OutputBuffers>
+                      <OutputBuffer Name="Output0">
+                        <Columns>
+                          <Column Name="ErrorColumnName" DataType="AnsiString" Length="255"/>
+                          <Column Name="ErrorDescription" DataType="AnsiString" Length="255"/>
+                        </Columns>
+                      </OutputBuffer>
+                    </OutputBuffers>
+                    <AssemblyReferences>
+                        <AssemblyReference AssemblyPath="Microsoft.SqlServer.DTSPipelineWrap.dll" />
+                        <AssemblyReference AssemblyPath="Microsoft.SqlServer.DTSRuntimeWrap.dll" />
+                        <AssemblyReference AssemblyPath="Microsoft.SqlServer.PipelineHost.dll" />
+                        <AssemblyReference AssemblyPath="Microsoft.SqlServer.TxScript.dll" />
+                        <AssemblyReference AssemblyPath="System.dll" />
+                        <AssemblyReference AssemblyPath="System.AddIn.dll" />
+                        <AssemblyReference AssemblyPath="System.Data.dll" />
+                        <AssemblyReference AssemblyPath="System.Xml.dll" />
+                    </AssemblyReferences>
+                    <Files>
+                      <File Path="main.cs">
+                        <#@include file="SCMP_GetErrorColNameDesc\main.csbiml" #>
+                      </File>
+                    </Files>
+                    <ReadOnlyVariables>
+                      <Variable Namespace="User" DataType="Object" VariableName="lineageIds" />
+                    </ReadOnlyVariables>
+                  </ScriptComponentProject>
+                </ScriptComponentProject>
+              </ScriptComponentTransformation>
+
+
+              
+              <FlatFileDestination Name="(FFDST) Accts_Errors"
+                                   ConnectionName="FF_AcctsDST_Errors">
+              </FlatFileDestination>
+            </Transformations>
+          </Dataflow>
+        </Tasks>
+     </Package>
+  <# } 
+     catch (Exception ex) {
+      Debug.BimlDump(this.GenerationEnvironment.ToString(), Host.TemplateFile); 
+     } 
+    #>      
+  </Packages>
+</Biml> 

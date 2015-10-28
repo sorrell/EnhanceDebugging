@@ -1,0 +1,20 @@
+<#@ template tier="3" #>
+<#@ include file="1.Environment.biml" #>
+
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <Connections>
+    <# 
+    // Now, we need to create a flat file connection for each file we created
+    foreach (var file in RootNode.FileFormats) 
+    { 
+      #>
+      <FlatFileConnection Name ="FF_<#= file.GetTag("FriendlyFileName") #>"
+                          FilePath ="<#= landingFolder #><#= file.GetTag("FriendlyFileName") #>.<#= file.GetTag("FileType") #>"
+                          FileFormat ="<#= file.GetTag("FriendlyFileFormatName") #>"
+                          DelayValidation = "true">
+      </FlatFileConnection>
+  <# 
+    } #>
+  </Connections>
+</Biml>
+

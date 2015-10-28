@@ -1,0 +1,146 @@
+<#@ template tier="2" #>
+<#@ import namespace="System.Data" #>
+<#@ include file="1.Environment.biml" #>
+
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <FileFormats>
+      <FlatFileFormat Name="FFF_AcctsSRC" 
+                      HeaderRowDelimiter="{LF}"
+                      ColumnNamesInFirstDataRow="true" 
+                      RowDelimiter="LF"
+                      TextQualifer="&quot;" 
+                      IsUnicode="false" >
+        <Columns>
+            <Column Name =      "Acct_Num" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "Description" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "Balance" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "AsOfDate" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "LF" />
+        </Columns>
+        <Annotations>
+          <Annotation AnnotationType="Tag" Tag="FriendlyFileName">Accts</Annotation>
+          <Annotation AnnotationType="Tag" Tag="FriendlyFileFormatName">FFF_AcctsSRC</Annotation>
+          <Annotation AnnotationType="Tag" Tag="FileType">txt</Annotation>
+        </Annotations>
+      </FlatFileFormat>
+      <FlatFileFormat Name="FFF_AcctsDST_Success" 
+                      HeaderRowDelimiter="{LF}"
+                      ColumnNamesInFirstDataRow="true" 
+                      RowDelimiter="LF"
+                      TextQualifer="&quot;" 
+                      IsUnicode="false" >
+        <Columns>
+            <Column Name =      "Acct_Num" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "Description" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "Balance" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "AsOfDate" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "ReadDate" 
+                    DataType =  "DateTime" 
+                    Delimiter = "Tab" />
+            <Column Name =      "ReadYear" 
+                    DataType =  "Int32" 
+                    Delimiter = "Tab" />
+            <Column Name =      "dc.Acct_Num" 
+                    DataType =  "Int32" 
+                    Delimiter = "Tab" />
+            <Column Name =      "dc.Description" 
+                    DataType =  "AnsiString" 
+                    Length =    "50"
+                    Delimiter = "Tab" />
+            <Column Name =      "dc.Balance" 
+                    DataType =  "Decimal"
+                    Precision = "18"
+                    Scale =     "2" 
+                    Delimiter = "Tab" />
+            <Column Name =      "dc.AsOfDate" 
+                    DataType =  "Date" 
+                    Delimiter = "Tab" />
+            <Column Name =      "dc.ReadDate" 
+                    DataType =  "DateTime" 
+                    Delimiter = "Tab" />
+            <Column Name =      "dc.ReadYear" 
+                    DataType =  "Int32" 
+                    Delimiter = "LF" />
+        </Columns>
+        <Annotations>
+          <Annotation AnnotationType="Tag" Tag="FriendlyFileName">AcctsDST_Success</Annotation>
+          <Annotation AnnotationType="Tag" Tag="FriendlyFileFormatName">FFF_AcctsDST_Success</Annotation>
+          <Annotation AnnotationType="Tag" Tag="FileType">txt</Annotation>
+        </Annotations>
+      </FlatFileFormat>
+      <FlatFileFormat Name="FFF_AcctsDST_Errors" 
+                      HeaderRowDelimiter="{LF}"
+                      ColumnNamesInFirstDataRow="true" 
+                      RowDelimiter="LF"
+                      TextQualifer="&quot;" 
+                      IsUnicode="false" >
+        <Columns>
+            <Column Name =      "Acct_Num" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "Description" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "Balance" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "AsOfDate" 
+                    DataType =  "AnsiString" 
+                    Length =    "255"
+                    Delimiter = "Tab" />
+            <Column Name =      "ReadDate" 
+                    DataType =  "DateTime" 
+                    Delimiter = "Tab" />
+            <Column Name =      "ReadYear" 
+                    DataType =  "Int32" 
+                    Delimiter = "Tab" />
+            <Column Name =      "ErrorCode" 
+                    DataType =  "Int32" 
+                    Delimiter = "Tab" />
+            <Column Name =      "ErrorColumn" 
+                    DataType =  "Int32" 
+                    Delimiter = "Tab" />
+            <Column Name =      "ErrorColumnName" 
+                    DataType =  "AnsiString" 
+                    Length =    "255" 
+                    Delimiter = "Tab" />
+            <Column Name =      "ErrorDescription" 
+                    DataType =  "AnsiString" 
+                    Length =    "255" 
+                    Delimiter = "LF" />
+        </Columns>
+        <Annotations>
+          <Annotation AnnotationType="Tag" Tag="FriendlyFileName">AcctsDST_Errors</Annotation>
+          <Annotation AnnotationType="Tag" Tag="FriendlyFileFormatName">FFF_AcctsDST_Errors</Annotation>
+          <Annotation AnnotationType="Tag" Tag="FileType">txt</Annotation>
+        </Annotations>
+      </FlatFileFormat>
+  </FileFormats>
+</Biml>
+

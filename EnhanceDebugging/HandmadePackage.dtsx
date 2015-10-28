@@ -1,0 +1,3214 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/9/2015 11:32:22 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="NICK-PC"
+  DTS:CreatorName="Nick-PC\Nick"
+  DTS:DTSID="{09A0EE38-D150-4A15-B32B-28A297B1BE69}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5058.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="HandmadePackage"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{F31FF1FD-12D9-483C-BA08-FC6D7C7FC6BE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FFDST_Error]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F5C55762-5399-4E2B-A36B-4779C74F209E}"
+      DTS:ObjectName="FFDST_Error">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::ffdstErrorPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="Y:\Learning\GetErrorColumnNames\GetErrorColumnNames\FlatFile\Errors.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Acct_Num"
+              DTS:DTSID="{02AC94B6-4EC8-4819-B0A4-B215EC5C0B01}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description"
+              DTS:DTSID="{73069D8C-475F-4E87-8BB6-583A61D3F783}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Balance"
+              DTS:DTSID="{B80B4B39-5A8D-48C9-B910-98BE2B6E97A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AsOfDate"
+              DTS:DTSID="{9A7CD353-9A38-4979-BE9D-3C04C49FDFA3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ReadDate"
+              DTS:DTSID="{023ABC2B-BAE2-46FE-9FC1-6C4B38CB2151}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ReadYear"
+              DTS:DTSID="{E05456AE-FA1C-4F97-8863-D1F7FB30BBD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{55915123-26CB-4012-BD44-35871A0A804C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{0E1D6C99-6749-46A9-8974-E7D896DB8620}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumnName"
+              DTS:DTSID="{98D3E711-89C3-4B6E-AD21-14C031071591}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorDescription"
+              DTS:DTSID="{E775D65E-8D52-4D7F-BED3-A95C5AA3C324}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FFDST_Success]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{4E02D27B-FD1D-41AE-B5D0-EE636EB1E15A}"
+      DTS:ObjectName="FFDST_Success">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::ffdstSuccessPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="Y:\Learning\GetErrorColumnNames\GetErrorColumnNames\FlatFile\Success.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Acct_Num"
+              DTS:DTSID="{7C42216E-D1FC-4E40-A42D-1259E98B1CA3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description"
+              DTS:DTSID="{504D01EB-6C66-45CA-94A7-5937428F6B43}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Balance"
+              DTS:DTSID="{8900EA5D-5178-428E-A63C-85CFA3AC516A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AsOfDate"
+              DTS:DTSID="{01F1D27A-EEC1-4766-9C31-ED61D0FA39E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ReadDate"
+              DTS:DTSID="{B7D6112F-1DB9-447B-AB96-261982FCCCAA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ReadYear"
+              DTS:DTSID="{13DEBC44-2369-4BF5-B642-EBF95E3DBEB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dc.Acct_Num"
+              DTS:DTSID="{0DECE126-4B50-4701-B305-E4A830438D9B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dc.Description"
+              DTS:DTSID="{882431DC-69E4-4C7D-8B07-D388890EAD83}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dc.Balance"
+              DTS:DTSID="{E5E00231-2B67-4324-8003-959A49E1CF7B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dc.AsOfDate"
+              DTS:DTSID="{D01B7B64-7927-4411-BBB0-49B75F220CAF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dc.ReadDate"
+              DTS:DTSID="{3BC8B05A-87B2-482A-A587-4A81843C26DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dc.ReadYear"
+              DTS:DTSID="{F0BF17CF-B67B-4F9B-8A80-D15F9641086E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FFSrc]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{97EA9368-9BA7-4309-B101-DF7E69311D02}"
+      DTS:ObjectName="FFSrc">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::ffsrcPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="Y:\Learning\GetErrorColumnNames\GetErrorColumnNames\FlatFile\Accts.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Acct_Num"
+              DTS:DTSID="{9AD2641C-4171-48C9-A625-0E57E8F663C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description"
+              DTS:DTSID="{ADAB991E-9591-4ACD-A940-EB6F6A6E9DDD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Balance"
+              DTS:DTSID="{6E4B7FE5-B1F3-4C8D-ACB3-40C90ECB4BB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AsOfDate"
+              DTS:DTSID="{CACDA88C-5CD7-4BEF-96E8-9E55DC370BB8}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5B3DAC15-1040-4221-9F7B-0F05F2E21D3E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="execsObj">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6B82914C-E7A3-4E94-88CC-9214F2450C94}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::ffRoot] +  &quot;Errors.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ffdstErrorPath">
+      <DTS:VariableValue
+        DTS:DataType="8">Y:\Learning\GetErrorColumnNames\GetErrorColumnNames\FlatFile\Errors.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{17D1C89F-3B0F-4792-8595-376F10A96353}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::ffRoot] +  &quot;Success.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ffdstSuccessPath">
+      <DTS:VariableValue
+        DTS:DataType="8">Y:\Learning\GetErrorColumnNames\GetErrorColumnNames\FlatFile\Success.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{250B706D-4332-4F20-A4D0-2BA2B69B76E0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ffRoot">
+      <DTS:VariableValue
+        DTS:DataType="8">Y:\Learning\GetErrorColumnNames\GetErrorColumnNames\FlatFile\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2AA59434-C62A-4897-BFEF-A678E112DA16}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::ffRoot] +  &quot;Accts.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ffsrcPath">
+      <DTS:VariableValue
+        DTS:DataType="8">Y:\Learning\GetErrorColumnNames\GetErrorColumnNames\FlatFile\Accts.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{394759CA-779E-428C-9172-B8CF49EE2E69}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="lineageIds">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\(DFT) Read FlatFile"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F8864D4E-0A60-40F1-A3C9-35DF4B779190}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(DFT) Read FlatFile"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="(DCNV) Convert To Target Type"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input].Columns[Acct_Num]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Acct_Num"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Acct_Num]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Description"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input].Columns[Balance]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Balance"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Balance]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input].Columns[AsOfDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AsOfDate"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[AsOfDate]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input].Columns[ReadDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ReadDate"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadDate]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input].Columns[ReadYear]"
+                      cachedDataType="i4"
+                      cachedName="ReadYear"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadYear]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.Acct_Num]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.Acct_Num]"
+                      name="dc.Acct_Num"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Acct_Num]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="50"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.Description]"
+                      name="dc.Description"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.Balance]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.Balance]"
+                      name="dc.Balance"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Balance]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.AsOfDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.AsOfDate]"
+                      name="dc.AsOfDate"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[AsOfDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.ReadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.ReadDate]"
+                      name="dc.ReadDate"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.ReadYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.ReadYear]"
+                      name="dc.ReadYear"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadYear]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Read FlatFile\(DCO) Add Data"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="(DCO) Add Data"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\(DFT) Read FlatFile\(DCO) Add Data.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\(DFT) Read FlatFile\(DCO) Add Data.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadDate]"
+                      name="ReadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadYear]"
+                      name="ReadYear"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[YEAR]([GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR(GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\(DFT) Read FlatFile\(DCO) Add Data.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Read FlatFile\(FFDST) Errors"
+              componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="(FFDST) Errors">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FFDST_Error]"
+                  connectionManagerRefId="Package.ConnectionManagers[FFDST_Error]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[Acct_Num]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Acct_Num"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[Acct_Num]"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Acct_Num]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[Balance]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Balance"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[Balance]"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Balance]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[AsOfDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AsOfDate"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[AsOfDate]"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[AsOfDate]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[ReadDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ReadDate"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ReadDate]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadDate]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[ReadYear]"
+                      cachedDataType="i4"
+                      cachedName="ReadYear"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ReadYear]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadYear]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[ErrorColumnName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ErrorColumnName"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumnName]"
+                      lineageId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Outputs[Output 0].Columns[ErrorColumnName]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].Columns[ErrorDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ErrorDescription"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorDescription]"
+                      lineageId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Outputs[Output 0].Columns[ErrorDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[Acct_Num]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Acct_Num" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[Balance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Balance" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[AsOfDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AsOfDate" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ReadDate]"
+                      dataType="dbTimeStamp"
+                      name="ReadDate" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ReadYear]"
+                      dataType="i4"
+                      name="ReadYear" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumnName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ErrorColumnName" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input].ExternalColumns[ErrorDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ErrorDescription" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\(DFT) Read FlatFile\(FFDST) Success"
+              componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="(FFDST) Success">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Read FlatFile\(FFDST) Success.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FFDST_Success]"
+                  connectionManagerRefId="Package.ConnectionManagers[FFDST_Success]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[Acct_Num]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Acct_Num"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[Acct_Num]"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Acct_Num]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[Balance]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Balance"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[Balance]"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Balance]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[AsOfDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AsOfDate"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[AsOfDate]"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[AsOfDate]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[ReadDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ReadDate"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[ReadDate]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadDate]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[ReadYear]"
+                      cachedDataType="i4"
+                      cachedName="ReadYear"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[ReadYear]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output].Columns[ReadYear]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[dc.Acct_Num]"
+                      cachedDataType="i4"
+                      cachedName="dc.Acct_Num"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.Acct_Num]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.Acct_Num]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[dc.Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dc.Description"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.Description]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.Description]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[dc.Balance]"
+                      cachedDataType="dbDate"
+                      cachedName="dc.Balance"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.Balance]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.Balance]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[dc.AsOfDate]"
+                      cachedDataType="date"
+                      cachedName="dc.AsOfDate"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.AsOfDate]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.AsOfDate]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[dc.ReadDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dc.ReadDate"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.ReadDate]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.ReadDate]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].Columns[dc.ReadYear]"
+                      cachedDataType="i4"
+                      cachedName="dc.ReadYear"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.ReadYear]"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output].Columns[dc.ReadYear]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[Acct_Num]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Acct_Num" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[Balance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Balance" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[AsOfDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AsOfDate" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[ReadDate]"
+                      dataType="dbTimeStamp"
+                      name="ReadDate" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[ReadYear]"
+                      dataType="i4"
+                      name="ReadYear" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.Acct_Num]"
+                      dataType="i4"
+                      name="dc.Acct_Num" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="dc.Description" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.Balance]"
+                      dataType="numeric"
+                      name="dc.Balance"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.AsOfDate]"
+                      dataType="date"
+                      name="dc.AsOfDate" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.ReadDate]"
+                      dataType="dbTimeStamp"
+                      name="dc.ReadDate" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input].ExternalColumns[dc.ReadYear]"
+                      dataType="i4"
+                      name="dc.ReadYear" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="(FFSRC) Accounts"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FFSrc]"
+                  connectionManagerRefId="Package.ConnectionManagers[FFSrc]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Acct_Num]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].ExternalColumns[Acct_Num]"
+                      length="50"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Acct_Num]"
+                      name="Acct_Num"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      length="50"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Balance]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].ExternalColumns[Balance]"
+                      length="50"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[Balance]"
+                      name="Balance"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[AsOfDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].ExternalColumns[AsOfDate]"
+                      length="50"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].Columns[AsOfDate]"
+                      name="AsOfDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].ExternalColumns[Acct_Num]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Acct_Num" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].ExternalColumns[Balance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Balance" />
+                    <externalMetadataColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output].ExternalColumns[AsOfDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AsOfDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;8"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="(SCR) Populate Error Cols"
+              version="8">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using System.Collections.Generic;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="Row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        Dictionary<int, string> lineageIds = (Dictionary<int, string>)Variables.lineageIds;
+
+        int? colNum = Row.ErrorColumn;
+        if (colNum.HasValue && (lineageIds != null))
+        {
+            if (lineageIds.ContainsKey(colNum.Value))
+                Row.ErrorColumnName = lineageIds[colNum.Value];
+
+            else
+                Row.ErrorColumnName = "Row error";
+        }
+        Row.ErrorDescription = this.ComponentMetaData.GetErrorDescription(Row.ErrorCode);
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public Int32 ErrorColumn
+    {
+        get
+        {
+            return Buffer.GetInt32(BufferColumnIndexes[0]);
+        }
+    }
+    public bool ErrorColumn_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+    }
+
+    public Int32 ErrorCode
+    {
+        get
+        {
+            return Buffer.GetInt32(BufferColumnIndexes[1]);
+        }
+    }
+    public bool ErrorCode_IsNull
+    {
+        get
+        {
+            return IsNull(1);
+        }
+    }
+
+    public String ErrorColumnName
+    {
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool ErrorColumnName_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String ErrorDescription
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool ErrorDescription_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+    public Object lineageIds
+    {
+        get
+        {
+            return (Object)(ParentComponent.ReadOnlyVariables["lineageIds"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_3438d8b15b6141889c755dcfced8bf0c.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F6879E4-FA86-4389-91EE-8FABC412D570}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_3438d8b15b6141889c755dcfced8bf0c</RootNamespace>
+    <AssemblyName>SC_3438d8b15b6141889c755dcfced8bf0c</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="devenv.exe" DebugInfoCommandLine="/vstaHostDebugUri:&quot;vstadebug3d328985-2fa3-4494-8089-1d41e4d6aefa/ba488bbe-8cc5-467f-ba1e-9d50342e4fbb&quot;" />
+        <Host Name="ScriptComponent" IconIndex="0" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC110</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_3438d8b15b6141889c755dcfced8bf0c.Properties.Settings.get_Default():SC_3438d8b15b6141889c755dcfced8bf0c.Properties.Sett" +
+    "ings")]
+
+namespace SC_3438d8b15b6141889c755dcfced8bf0c.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>SC_3438d8b15b6141889c755dcfced8bf0c</msb:CodeName>
+		<msb:DisplayName>SC_3438d8b15b6141889c755dcfced8bf0c</msb:DisplayName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:ProjectId>{DA888B9E-F60B-4B88-B2A4-49035A07A487}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="SC_3438d8b15b6141889c755dcfced8bf0c.csproj"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="main.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="ComponentWrapper.cs"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="BufferWrapper.cs"/>
+		<msb:File Include="Properties\Settings.settings"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_3438d8b15b6141889c755dcfced8bf0c")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_3438d8b15b6141889c755dcfced8bf0c")]
+[assembly: AssemblyCopyright("Copyright @  2015")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_3438d8b15b6141889c755dcfced8bf0c.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_3438d8b15b6141889c755dcfced8bf0c.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_3438d8b15b6141889c755dcfced8bf0c.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_3438d8b15b6141889c755dcfced8bf0c.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_3438d8b15b6141889c755dcfced8bf0c.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_3438d8b15b6141889c755dcfced8bf0c.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAKbjF1YAAAAAAAAAAOAAAiELAQsAABgAAAAIAAAAAAAAfjcA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAACg3AABTAAAAAEAAAAgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAhBcAAAAgAAAAGAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAAgEAAAAQAAAAAYAAAAaAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAIAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABg
+NwAAAAAAAEgAAAACAAUAQCMAAOgTAAABAAAAAAAAAIgiAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4CKA0AAAoCAnMUAAAGfQEAAAQCAnMVAAAGfQIAAAQqkgRy
+AQAAcBpvDgAACiwVAgUCAygPAAAKDgRzCQAABm8DAAAGKkorBwIDbwQAAAYDbxIAAAYt8SoGKh4C
+KBEAAAoqHgIoEgAACioAABMwAwBxAAAAAQAAEQJ7AgAABG8WAAAGdAEAABsKEgEDbwoAAAYoEwAA
+ChIBKBQAAAosMgYsLwYSASgVAAAKbxYAAAosFQMGEgEoFQAACm8XAAAKbw4AAAYrCwNyEQAAcG8O
+AAAGAwIoGAAACgNvDAAABm8ZAAAKbxAAAAYqHgIoAQAABioqAgMEBSgaAAAKKlICexsAAAoCexwA
+AAoWlG8dAAAKKiICFigeAAAKKlICexsAAAoCexwAAAoXlG8dAAAKKiICFygeAAAKKiYCGAMoHwAA
+CipaAywIAhgoIAAACipyJQAAcHMhAAAKeiYCGQMoHwAACipaAywIAhkoIAAACipyJQAAcHMhAAAK
+eh4CKCIAAAoqHgIoIwAACio6AigkAAAKAgN9AwAABCo6AigkAAAKAgN9BAAABCqCAnsEAAAEbyUA
+AApywgAAcG8mAAAKKCcAAApvKAAACioeAigkAAAKKgAAABMwAgAtAAAAAgAAEX4FAAAELSBy2AAA
+cNAHAAACKCoAAApvKwAACnMsAAAKCgaABQAABH4FAAAEKhp+BgAABCoeAoAGAAAEKhp+BwAABCou
+cxwAAAaABwAABCoeAigvAAAKKgC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVz
+b3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwg
+UHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVS
+ZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAz
+MTkAAAAABQBsAAAAnAYAACN+AAAIBwAAgAkAACNTdHJpbmdzAAAAAIgQAABMAQAAI1VTANQRAAAQ
+AAAAI0dVSUQAAADkEQAABAIAACNCbG9iAAAAAAAAAAIAAAFXFaIJCQEAAAD6JTMAFgAAAQAAACYA
+AAAIAAAABwAAAB0AAAARAAAALwAAAA8AAAACAAAABAAAAAwAAAANAAAAAgAAAAEAAAAGAAAAAQAA
+AAAACgABAAAAAAAGAO4AzQAGAP4AzQAKABsBFAEOADcBIgESAHYBzQAGAIUBzQAKAGUDVAMKAJYD
+gQMKAG8EVQQKAJoEiAQKALEEiAQKAM4EiAQKAO0EiAQKAAYFiAQKAB8FiAQKADoFiAQKAFUFiAQK
+AG4FiAQKAKcFhwUKAMcFhwUKAAkGFAEKABAGFAEGADkGzQAKAHsGYAYKAIgGFAEWAAwH4wYKAHAH
+FAEaANUHrQcaAPwHrQcHAAwIAAAaADwIrQcKAHsIaAgKAJgIFAEKAJ0IFAEKAMEIiAQOAO0I1wgO
+AAYJ1wgKABsJhwUAAAAAAQAAAAAAAQABAAEAEAAyAAAABQABAAEAAQAQAEAAAAAIAAMABQABABAA
+SwAAAAkAAwAJAAEAEABYAAAADQADABQAAQAQAGQAAAANAAQAFQAAABAAbgB4AA0ABQAXAAABEACn
+AHgAEQAHABsABgBYABMABgBkABcAAQAqA1cAAQAqA1cAEQB1A2kAEQCiA20AEQDmA4sAUCAAAAAA
+hhhPARsAAQBwIAAAAADGAJMBHwABAJUgAAAAAMYBoAEpAAUAqCAAAAAAxgG0ASkABgCqIAAAAADG
+AMsBGwAHALIgAAAAAMYA1gEbAAcAvCAAAAAAxgC0ASkABwA5IQAAAACGGE8BGwAIAEEhAAAAAIYY
+TwEvAAgATCEAAAAAhgjiATkACwBhIQAAAACGCPIBPQALAGohAAAAAIYICQI5AAsAfyEAAAAAhggX
+Aj0ACwCIIQAAAACGCCwCQQALAJIhAAAAAIYIQAJGAAwAqSEAAAAAhghbAkEADQCzIQAAAACGCHAC
+RgAOAMohAAAAAIYAjAI9AA8A0iEAAAAAhgCUAj0ADwDaIQAAAACGGE8BWwAPAOkhAAAAAIYYTwFb
+ABAA+CEAAAAAhgg6A2EAEQAZIgAAAACDGE8BGwARACQiAAAAAJMIsgNxABEAXSIAAAAAkwjGA3YA
+EQBkIgAAAACTCNIDewARAGwiAAAAAJYI9gOPABIAfyIAAAAAhhhPARsAEgBzIgAAAACRGDYJRwES
+AAAAAQAKBAAAAgASBAAAAwAcBAAABAAjBAAAAQAcBAAAAQAtBAAAAQAtBAAAAQAcBAAAAgAxBAAA
+AwAjBAAAAQBFBAAAAQBFBAAAAQBFBAAAAQBFBAAAAQBLBAAAAQBLBAAAAQBFBEkATwFBAFEATwFB
+AFkATwFBAGEATwFBAGkATwFBAHEATwFBAHkATwFBAIEATwFBAIkATwFBAJEATwFBAJkATwGZAKEA
+TwEbAAkATwEbAKkAIQaeAAkAKAalALkATwEbAAkAywEbAAkA1gEbABQATwG9ABQAkwY9ABQAoAbD
+AAwAqgbIAAwAtgbOAAkAJQfVANEAOwfaABEATwEvABEAHATtABEAMQTxACkATwf1ABEAWAf6ABEA
+Xwf/ABEAaAeZANkATwFBABEAjAI9ABEAlAI9ABkATwEbAAkA5gcFAeEAtgYKAQkAJwgQAekAVAgV
+AQEBTwEbAAkBrwgbAQkByggkATkATwEqASEBTwE3ATEBTwEbACEATwEbAC4AGwC8AS4AYwDiAS4A
+CwBLAS4AEwCTAS4AIwC8AS4AKwC8AS4AMwCTAS4AOwDCAS4AQwC8AS4AWwDZAWMAgwCrAOEAcwGr
+AOMASwGrAEkBawE+AWkBawE+Ad8AMgEEAAEABgAJAAcACgAIAAwAAACgAksAAACsAk8AAAC/AksA
+AADJAk8AAADaAlMAAADqAk8AAAABA1MAAAASA08AAABJA2UAAABlA4EAAADeA4YAAAACBJQAAgAK
+AAMAAgALAAUAAgAMAAcAAgANAAkAAQAOAAsAAQAPAA0AAQAQAA8AAQARABEAAgAWABMAAgAYABUA
+AgAZABcAAQAaABcAAgAbABkAsAC3AASAAAABAAAAgBbrTAAAAAAAAOUFAAALAAAAAAAAAAAAAAAB
+ALAAAAAAAAQAAAAAAAAAAAAAAAoACwEAAAAABAAAAAAAAAAAAAAACgAUAQAAAAALAAAAAAAAAAAA
+AAABAFUBAAAAAAsAAAAAAAAAAAAAAAEAvwYAAAAACwAAAAAAAAAAAAAAAQCKBwAAAAAAAAAAAQAA
+AD0JAAAAAAAAADxNb2R1bGU+AFNDXzM0MzhkOGIxNWI2MTQxODg5Yzc1NWRjZmNlZDhiZjBjLmRs
+bABVc2VyQ29tcG9uZW50AFNjcmlwdE1haW4ASW5wdXQwQnVmZmVyAENvbm5lY3Rpb25zAFZhcmlh
+YmxlcwBSZXNvdXJjZXMAU0NfMzQzOGQ4YjE1YjYxNDE4ODljNzU1ZGNmY2VkOGJmMGMuUHJvcGVy
+dGllcwBTZXR0aW5ncwBNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxT
+ZXJ2ZXIuRHRzLlBpcGVsaW5lAFNjcmlwdENvbXBvbmVudABTY3JpcHRCdWZmZXIAbXNjb3JsaWIA
+U3lzdGVtAE9iamVjdABTeXN0ZW0uQ29uZmlndXJhdGlvbgBBcHBsaWNhdGlvblNldHRpbmdzQmFz
+ZQAuY3RvcgBNaWNyb3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9zdABQaXBlbGluZUJ1ZmZlcgBP
+dXRwdXROYW1lTWFwAFByb2Nlc3NJbnB1dABJbnB1dDBfUHJvY2Vzc0lucHV0AElucHV0MF9Qcm9j
+ZXNzSW5wdXRSb3cAUHJlRXhlY3V0ZQBQb3N0RXhlY3V0ZQBnZXRfRXJyb3JDb2x1bW4AZ2V0X0Vy
+cm9yQ29sdW1uX0lzTnVsbABnZXRfRXJyb3JDb2RlAGdldF9FcnJvckNvZGVfSXNOdWxsAHNldF9F
+cnJvckNvbHVtbk5hbWUAc2V0X0Vycm9yQ29sdW1uTmFtZV9Jc051bGwAc2V0X0Vycm9yRGVzY3Jp
+cHRpb24Ac2V0X0Vycm9yRGVzY3JpcHRpb25fSXNOdWxsAE5leHRSb3cARW5kT2ZSb3dzZXQARXJy
+b3JDb2x1bW4ARXJyb3JDb2x1bW5fSXNOdWxsAEVycm9yQ29kZQBFcnJvckNvZGVfSXNOdWxsAEVy
+cm9yQ29sdW1uTmFtZQBFcnJvckNvbHVtbk5hbWVfSXNOdWxsAEVycm9yRGVzY3JpcHRpb24ARXJy
+b3JEZXNjcmlwdGlvbl9Jc051bGwAUGFyZW50Q29tcG9uZW50AGdldF9saW5lYWdlSWRzAGxpbmVh
+Z2VJZHMAU3lzdGVtLlJlc291cmNlcwBSZXNvdXJjZU1hbmFnZXIAcmVzb3VyY2VNYW4AU3lzdGVt
+Lkdsb2JhbGl6YXRpb24AQ3VsdHVyZUluZm8AcmVzb3VyY2VDdWx0dXJlAGdldF9SZXNvdXJjZU1h
+bmFnZXIAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAQ3VsdHVyZQBkZWZhdWx0SW5zdGFuY2UAZ2V0
+X0RlZmF1bHQARGVmYXVsdABJbnB1dElEAElucHV0TmFtZQBCdWZmZXIAT3V0cHV0TWFwAFJvdwBC
+dWZmZXJDb2x1bW5JbmRleGVzAHZhbHVlAENvbXBvbmVudABTeXN0ZW0uUnVudGltZS5WZXJzaW9u
+aW5nAFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBTeXN0ZW0uUmVmbGVjdGlvbgBBc3NlbWJseVRp
+dGxlQXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQXNzZW1ibHlDb25maWd1
+cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBBc3NlbWJseVByb2R1Y3RB
+dHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRy
+aWJ1dGUAQXNzZW1ibHlDdWx0dXJlQXR0cmlidXRlAEFzc2VtYmx5VmVyc2lvbkF0dHJpYnV0ZQBT
+eXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRy
+aWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAU0NfMzQzOGQ4YjE1YjYxNDE4ODlj
+NzU1ZGNmY2VkOGJmMGMAU3RyaW5nAFN0cmluZ0NvbXBhcmlzb24ARXF1YWxzAEdldENvbHVtbklu
+ZGV4ZXMAU1NJU1NjcmlwdENvbXBvbmVudEVudHJ5UG9pbnRBdHRyaWJ1dGUAU3lzdGVtLkNvbGxl
+Y3Rpb25zLkdlbmVyaWMARGljdGlvbmFyeWAyAE51bGxhYmxlYDEAZ2V0X0hhc1ZhbHVlAGdldF9W
+YWx1ZQBDb250YWluc0tleQBnZXRfSXRlbQBNaWNyb3NvZnQuU3FsU2VydmVyLkRUU1BpcGVsaW5l
+V3JhcABNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZS5XcmFwcGVyAElEVFNDb21wb25l
+bnRNZXRhRGF0YTEwMABnZXRfQ29tcG9uZW50TWV0YURhdGEAR2V0RXJyb3JEZXNjcmlwdGlvbgBH
+ZXRJbnQzMgBJc051bGwAc2V0X0l0ZW0AU2V0TnVsbABJbnZhbGlkT3BlcmF0aW9uRXhjZXB0aW9u
+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRFRTUnVudGltZVdyYXAATWljcm9zb2Z0LlNxbFNlcnZlci5E
+dHMuUnVudGltZS5XcmFwcGVyAElEVFNWYXJpYWJsZXMxMDAAZ2V0X1JlYWRPbmx5VmFyaWFibGVz
+AElEVFNWYXJpYWJsZTEwMABTY3JpcHRDb21wb25lbnRFdmFsQ29udGV4dABnZXRfRXZhbHVhdG9y
+Q29udGV4dABJRFRTRXZhbHVhdG9yQ29udGV4dDEwMABHZXRWYWx1ZVdpdGhDb250ZXh0AFN5c3Rl
+bS5EaWFnbm9zdGljcwBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAFR5cGUAUnVudGltZVR5
+cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUAQXNzZW1ibHkAZ2V0X0Fzc2VtYmx5AFN5c3RlbS5D
+b21wb25lbnRNb2RlbABFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlU3Rh
+dGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUALmNjdG9yAFNDXzM0MzhkOGIxNWI2MTQxODg5
+Yzc1NWRjZmNlZDhiZjBjLlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwAAD0kAbgBwAHUA
+dAAgADAAABNSAG8AdwAgAGUAcgByAG8AcgAAgJtJAHMATgB1AGwAbAAgAHAAcgBvAHAAZQByAHQA
+eQAgAGMAYQBuAG4AbwB0ACAAYgBlACAAcwBlAHQAIAB0AG8AIABGAGEAbABzAGUALgAgAEEAcwBz
+AGkAZwBuACAAYQAgAHYAYQBsAHUAZQAgAHQAbwAgAHQAaABlACAAYwBvAGwAdQBtAG4AIABpAG4A
+cwB0AGUAYQBkAC4AABVsAGkAbgBlAGEAZwBlAEkAZABzAABxUwBDAF8AMwA0ADMAOABkADgAYgAx
+ADUAYgA2ADEANAAxADgAOAA5AGMANwA1ADUAZABjAGYAYwBlAGQAOABiAGYAMABjAC4AUAByAG8A
+cABlAHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAAAAAMI+iE+/3ltNklwBYivDjpIACImE
+Xc2AgMyRCLd6XFYZNOCJAwYSFAMGEhgDIAABCSAEAQgOEhUSGQUgAQESEAkgAwESFR0IEhkDIAAI
+AyAAAgQgAQEOBCABAQIDKAAIAygAAgMoAA4DBhIFBSABARIFAyAAHAMoABwDBhIdAwYSIQQAABId
+BAAAEiEFAAEBEiEECAASHQQIABIhAwYSIAQAABIgBAgAEiAEIAEBCAYgAgIOEVkFIAEdCAgEAQAA
+AAYVEmECCA4FFRFlAQgFIAEBEwAEIAATAAUgAQITAAYgARMBEwAEIAASaQQgAQ4IDQcCFRJhAggO
+FRFlAQgDBhIVAwYdCAQgAQgIBCABAggFIAIBCBwEIAAScQUgARJ1HAQAABJ5BSABHBJ9CAABEoCF
+EYCJBSAAEoCNByACAQ4SgI0EBwESHQYgAQERgJUIAQACAAAAAAADAAABRwEAGi5ORVRGcmFtZXdv
+cmssVmVyc2lvbj12NC4wAQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRAuTkVUIEZyYW1ld29yayA0
+KAEAI1NDXzM0MzhkOGIxNWI2MTQxODg5Yzc1NWRjZmNlZDhiZjBjAAAFAQAAAAAWAQARQ29weXJp
+Z2h0IEAgIDIwMTUAAAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEAAABQ
+NwAAAAAAAAAAAABuNwAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYDcAAAAAAAAAAAAAAAAAAAAA
+X0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAEAEAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgA
+AABYQAAAsAMAAAAAAAAAAAAAsAM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAA
+AL0E7/4AAAEAAAABAOtMgBYAAAEA60yAFj8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAA
+AQBWAGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAA
+AAAAAACwBBADAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAOwCAAABADAAMAAwADAA
+MAA0AGIAMAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAEMAXwAz
+ADQAMwA4AGQAOABiADEANQBiADYAMQA0ADEAOAA4ADkAYwA3ADUANQBkAGMAZgBjAGUAZAA4AGIA
+ZgAwAGMAAABAAA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4ANQA3ADYAMAAu
+ADEAOQA2ADkAMQAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwAzADQA
+MwA4AGQAOABiADEANQBiADYAMQA0ADEAOAA4ADkAYwA3ADUANQBkAGMAZgBjAGUAZAA4AGIAZgAw
+AGMALgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkA
+cgBpAGcAaAB0ACAAQAAgACAAMgAwADEANQAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABl
+AG4AYQBtAGUAAABTAEMAXwAzADQAMwA4AGQAOABiADEANQBiADYAMQA0ADEAOAA4ADkAYwA3ADUA
+NQBkAGMAZgBjAGUAZAA4AGIAZgAwAGMALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBh
+AG0AZQAAAAAAUwBDAF8AMwA0ADMAOABkADgAYgAxADUAYgA2ADEANAAxADgAOAA5AGMANwA1ADUA
+ZABjAGYAYwBlAGQAOABiAGYAMABjAAAARAAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBu
+AAAAMQAuADAALgA1ADcANgAwAC4AMQA5ADYAOQAxAAAAAABIAA8AAQBBAHMAcwBlAG0AYgBsAHkA
+IABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgA1ADcANgAwAC4AMQA5ADYAOQAxAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAAIA3AAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_3438d8b15b6141889c755dcfced8bf0c</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages, Microsoft.SqlServer.VSTAScriptingLib, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">User::lineageIds</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum"
+                  typeConverter="NOTBROWSABLE">a9f7d4ec7d35842428aff0cd6ef35615</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ScriptComponentHost, Microsoft.SqlServer.TxScript, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Inputs[Input 0].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Inputs[Input 0].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Inputs[Input 0]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Outputs[Output 0].Columns[ErrorColumnName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Outputs[Output 0].Columns[ErrorColumnName]"
+                      name="ErrorColumnName" />
+                    <outputColumn
+                      refId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Outputs[Output 0].Columns[ErrorDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Outputs[Output 0].Columns[ErrorDescription]"
+                      name="ErrorDescription" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\(DFT) Read FlatFile.Paths[Data Conversion Error Output]"
+              endId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Inputs[Input 0]"
+              name="Data Conversion Error Output"
+              startId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Error Output]" />
+            <path
+              refId="Package\(DFT) Read FlatFile.Paths[Data Conversion Output]"
+              endId="Package\(DFT) Read FlatFile\(FFDST) Success.Inputs[Flat File Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\(DFT) Read FlatFile.Paths[Derived Column Output]"
+              endId="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\(DFT) Read FlatFile\(DCO) Add Data.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\(DFT) Read FlatFile.Paths[Flat File Source Output]"
+              endId="Package\(DFT) Read FlatFile\(DCO) Add Data.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\(DFT) Read FlatFile\(FFSRC) Accounts.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\(DFT) Read FlatFile.Paths[Output 0]"
+              endId="Package\(DFT) Read FlatFile\(FFDST) Errors.Inputs[Flat File Destination Input]"
+              name="Output 0"
+              startId="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols.Outputs[Output 0]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\(SCR) GetLineageIDs"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Script Task"
+      DTS:DTSID="{8792896D-51F9-46F9-B41B-B4638EE88945}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="(SCR) GetLineageIDs"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_b90e02c5aa5e4a7a992a1a75c6255cfa"
+          VSTAMajorVersion="3"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadWriteVariables="User::execsObj,User::lineageIds">
+          <ProjectItem
+            Name="ST_b90e02c5aa5e4a7a992a1a75c6255cfa.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33342198-7AB7-43D6-82F2-7FF230B9971E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_b90e02c5aa5e4a7a992a1a75c6255cfa</RootNamespace>
+    <AssemblyName>ST_b90e02c5aa5e4a7a992a1a75c6255cfa</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="devenv.exe" DebugInfoCommandLine="/vstaHostDebugUri:&quot;vstadebug7b57fb38-c708-4d8a-8611-1743b0f120d5/ba3830f3-a597-412e-ba61-bb3e6e5b3011&quot;" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST110</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_b90e02c5aa5e4a7a992a1a75c6255cfa")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_b90e02c5aa5e4a7a992a1a75c6255cfa")]
+[assembly: AssemblyCopyright("Copyright @  2015")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using System.Windows.Forms;
+using System.IO;
+using System.Collections.Generic;
+#endregion
+
+namespace ST_b90e02c5aa5e4a7a992a1a75c6255cfa
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        Dictionary<int, string> lineageIds = null;
+
+        public void Main()
+        {
+            // Grab the executables so we have to something to iterate over, and initialize our lineageIDs list
+            // Why the executables?  Well, SSIS won't let us store a reference to the Package itself...
+            Dts.Variables["User::execsObj"].Value = ((Package)Dts.Variables["User::execsObj"].Parent).Executables;
+            Dts.Variables["User::lineageIds"].Value = new Dictionary<int, string>();
+            lineageIds = (Dictionary<int, string>)Dts.Variables["User::lineageIds"].Value;
+            Executables execs = (Executables)Dts.Variables["User::execsObj"].Value;
+
+            ReadExecutables(execs);
+
+            // Just proof of concept to see the results before you dedicate your time to the solution
+            // Delete this code in your actual implementation
+            using (StreamWriter writetext = new StreamWriter(@"C:\temp\write.txt", true))
+            {
+                foreach (var kvp in lineageIds)
+                    writetext.WriteLine(kvp.Key + " : " + kvp.Value);
+            }
+            Dts.TaskResult = (int)ScriptResults.Success;
+        }
+
+        private void ReadExecutables(Executables executables)
+        {
+            foreach (Executable pkgExecutable in executables)
+            {
+                if (object.ReferenceEquals(pkgExecutable.GetType(), typeof(Microsoft.SqlServer.Dts.Runtime.TaskHost)))
+                {
+                    TaskHost pkgExecTaskHost = (TaskHost)pkgExecutable;
+                    if (pkgExecTaskHost.CreationName.StartsWith("SSIS.Pipeline"))
+                    {
+                        ProcessDataFlowTask(pkgExecTaskHost);
+                    }
+                }
+                else if (object.ReferenceEquals(pkgExecutable.GetType(), typeof(Microsoft.SqlServer.Dts.Runtime.ForEachLoop)))
+                {
+                    // Recurse into FELCs
+                    ReadExecutables(((ForEachLoop)pkgExecutable).Executables);
+                }
+            }
+        }
+
+        private void ProcessDataFlowTask(TaskHost currentDataFlowTask)
+        {
+            MainPipe currentDataFlow = (MainPipe)currentDataFlowTask.InnerObject;
+            foreach (IDTSComponentMetaData100 currentComponent in currentDataFlow.ComponentMetaDataCollection)
+            {
+                // Get the inputs in the component.
+                foreach (IDTSInput100 currentInput in currentComponent.InputCollection)
+                    foreach (IDTSInputColumn100 currentInputColumn in currentInput.InputColumnCollection)
+                        lineageIds.Add(currentInputColumn.ID, currentInputColumn.Name);
+
+                // Get the outputs in the component.
+                foreach (IDTSOutput100 currentOutput in currentComponent.OutputCollection)
+                    foreach (IDTSOutputColumn100 currentoutputColumn in currentOutput.OutputColumnCollection)
+                        lineageIds.Add(currentoutputColumn.ID, currentoutputColumn.Name);
+            }
+        }
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>ST_b90e02c5aa5e4a7a992a1a75c6255cfa</msb:CodeName>
+		<msb:DisplayName>ST_b90e02c5aa5e4a7a992a1a75c6255cfa</msb:DisplayName>
+		<msb:ProjectId>{59339A0D-E766-4D20-9E4D-BB168679FEA2}</msb:ProjectId>
+		<msb:Language>msBuild</msb:Language>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="ST_b90e02c5aa5e4a7a992a1a75c6255cfa.csproj"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="ScriptMain.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b90e02c5aa5e4a7a992a1a75c6255cfa.Properties.Settings.get_Default():ST_b90e02c5aa5e4a7a992a1a75c6255cfa.Properties.Sett" +
+    "ings")]
+
+namespace ST_b90e02c5aa5e4a7a992a1a75c6255cfa.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b90e02c5aa5e4a7a992a1a75c6255cfa.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b90e02c5aa5e4a7a992a1a75c6255cfa.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b90e02c5aa5e4a7a992a1a75c6255cfa.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_b90e02c5aa5e4a7a992a1a75c6255cfa.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_b90e02c5aa5e4a7a992a1a75c6255cfa.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_b90e02c5aa5e4a7a992a1a75c6255cfa.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDACffF1YAAAAAAAAAAOAAAiELAQsAACQAAAAIAAAAAAAAPkMA
+AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACgAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOhCAABTAAAAAGAAAAgEAAAAAAAAAAAAAAAAAAAA
+AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAARCMAAAAgAAAAJAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAAgEAAAAYAAAAAYAAAAmAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAIAAAAACAAAALAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAg
+QwAAAAAAAEgAAAACAAUASCUAAKAdAAABAAAAAAAAAJAkAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKA4AAAoqEzACAC0AAAABAAARfgEAAAQtIHIBAABw0AIA
+AAIoDwAACm8QAAAKcxEAAAoKBoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKi5zBgAA
+BoADAAAEKh4CKBQAAAoqABswBAAgAQAAAgAAEQIoFgAACm8XAAAKcnMAAHBvGAAACgIoFgAACm8X
+AAAKcnMAAHBvGAAACm8ZAAAKdCIAAAFvGgAACm8bAAAKAigWAAAKbxcAAApykQAAcG8YAAAKcxwA
+AApvGwAACgICKBYAAApvFwAACnKRAABwbxgAAApvHQAACnQBAAAbfQQAAAQCKBYAAApvFwAACnJz
+AABwbxgAAApvHQAACnQIAAABCgIGKAkAAAZyswAAcBdzHgAACgsCewQAAARvHwAACg0rKxIDKCAA
+AAoMBxICKCEAAAqMJgAAAXLXAABwEgIoIgAACigjAAAKbyQAAAoSAyglAAAKLczeDhID/hYCAAAb
+byYAAArc3goHLAYHbyYAAArcAigWAAAKFm8nAAAKKgEcAAACAMEAOPkADgAAAAACALUAVAkBCgAA
+AAATMAIAegAAAAMAABEDbygAAAoMK2gIbykAAAoKBm8qAAAK0AkAAAEoDwAACigrAAAKLCIGdAkA
+AAELB28sAAAKct8AAHBvLQAACiwxAgcoCgAABisoBm8qAAAK0CwAAAEoDwAACigrAAAKLBECBnQs
+AAABby4AAAooCQAABghvLwAACi2QKgAAGzADAHIBAAAEAAARA28wAAAKdAYAAAIKBm8NAAAGbw8A
+AAYTBjgwAQAAEQZvMwAACnQJAAACCwdvEQAABm8UAAAGEwcrYBEHbzMAAAp0CwAAAgwIbxYAAAZv
+GAAABhMIKyQRCG8zAAAKdA0AAAINAnsEAAAECW8ZAAAGCW8cAAAGbzoAAAoRCG87AAAKLdPeFREI
+dSkAAAETCREJLAcRCW8mAAAK3BEHbzsAAAotl94VEQd1KQAAARMKEQosBxEKbyYAAArcB28SAAAG
+bx8AAAYTCytlEQtvMwAACnQPAAACEwQRBG8hAAAGbyMAAAYTDCsnEQxvMwAACnQRAAACEwUCewQA
+AAQRBW8kAAAGEQVvJwAABm86AAAKEQxvOwAACi3Q3hURDHUpAAABEw0RDSwHEQ1vJgAACtwRC287
+AAAKLZLeFRELdSkAAAETDhEOLAcRDm8mAAAK3BEGbzsAAAo6xP7//94VEQZ1KQAAARMPEQ8sBxEP
+byYAAArcKgAAQXwAAAIAAABUAAAAMQAAAIUAAAAVAAAAAAAAAAIAAAA4AAAAbQAAAKUAAAAVAAAA
+AAAAAAIAAADlAAAANAAAABkBAAAVAAAAAAAAAAIAAADHAAAAcgAAADkBAAAVAAAAAAAAAAIAAAAZ
+AAAAQwEAAFwBAAAVAAAAAAAAAB4CKEIAAAoqtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3Vy
+Y2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5l
+dXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5S
+dW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAEJTSkIBAAEAAAAAAAwAAAB2
+NC4wLjMwMzE5AAAAAAUAbAAAADwLAAAjfgAAqAsAAOgKAAAjU3RyaW5ncwAAAACQFgAA/AAAACNV
+UwCMFwAAEAAAACNHVUlEAAAAnBcAAAQGAAAjQmxvYgAAAAAAAAACAAABVz+iCQkDAAAA+iUzABYA
+AAEAAABDAAAAEwAAAAcAAAAoAAAAEwAAAA0AAABIAAAAAgAAAFEAAAAOAAAABAAAAAgAAAAMAAAA
+EQAAAAMAAAABAAAABAAAAAEAAAABAAAAAAAKAAEAAAAAAAYAwQC6AAoA3QDIAA4APQEUAQYAWQG6
+AAYAbwFeAQYAoAGLAQYANQIaAhIAkQJxAhIArQJxAgYAIgMIAwYATQM7AwYAZAM7AwYAgQM7AwYA
+oAM7AwYAuQM7AwYA0gM7AwYA7QM7AwYACAQ7AwYAIQQ7AwYAWgQ6BAYAegQ6BAYAqwSYBAYAyAS6
+AAYAzQS6AAYA8QQ7AwoAHQUHBQoANgUHBQYASwU6BA4AbQUUAQ4AjwUUARIAqQVxAhIAwQVxAhIA
+0wVxAhIA6wVxAgYAIQYXBh8ALgYAAAYARwYaAgYAaga6AAYAcAa6AAYAfgYXBgYAnAa6ABIAvwZx
+AhIA1AZxAhIAEwdxAhIAHwdxAgQAPQdGBwQAbwdGBwQAfwdGBwYA1QfCBwQA4QdGBwQA+gdGBwQA
+JQhGBwQAMghGBwQAaQhGBwQAkAhGBwQAvQhGBwQAywhGBwQABAlGBwQAGAlGBwYASgkrCQYAWAkr
+CQYAcAkrCQYAgwkrCQYAoAkrCQYAzAnCBwYA2Ak7AwQA7wlGBwAAAAABAAAAAAABAAEAAAAQADIA
+PAAFAAEAAQAAARAAawA8AAkAAwAFAAEAEAB0AH8ADQAEAAgAAwEAAKMAAAARAAUADAChEAAAPQdG
+BwAACAAMAKEQAABvB0YHAAAIAAwAoRAAAH8HRgcAAAgADgChEAAA4QdGBwAACAAQAKEQAAD6B0YH
+AAAIABMAoRAAACUIRgcAAAgAFQChEAAAMghGBwAACAAXAKEQAABpCEYHAAAIABkAoRAAAJAIRgcA
+AAgAHgChEAAAvQhGBwAACAAgAKEQAADLCEYHAAAIACIAoRAAAAQJRgcAAAgAJAChEAAAGAlGBwAA
+CAApAKEQAADvCUYHAAAIACkAEQB/ARMAEQCsARcAEQD2ATkAAQBCAkcABgbKAlsAVoDSAl4AVoDa
+Al4AUCAAAAAAgxi8ARsAAQBYIAAAAACTCMIBHwABAJEgAAAAAJMI1gEkAAEAmCAAAAAAkwjiASkA
+AQCgIAAAAACWCAYCPQACALMgAAAAAIYYvAEbAAIApyAAAAAAkRhmBZ0AAgC8IAAAAACGAE0CGwAC
+AAQiAAAAAIEAnQJPAAIAjCIAAAAAgQC2AlUAAwCIJAAAAACGGLwBGwAEAAAAAAAAAAYYlAkbAAQA
+AAAAAAAAxg2iB1EBBAAAAAAAAAAGGJQJGwAFAAAAAAAAAMYFOQZWAQUAAAAAAAAABhj9CRsABgAA
+AAAAAADGDREIXAEGAAAAAAAAAMYNqAhyAQcAAAAAAAAABhiUCRsACAAAAAAAAADGBTkGVgEIAAAA
+AAAAAAYYKwobAAkAAAAAAAAAxg1PCGEBCQAAAAAAAAAGGJQJGwAKAAAAAAAAAMYFOQZWAQoAAAAA
+AAAAxg18CGYBCwAAAAAAAADGDU4KcQALAAAAAAAAAAYYWQobAAwAAAAAAAAAxg2DCD0BDAAAAAAA
+AADGDWUKbAANAAAAAAAAAAYYlAkbAA4AAAAAAAAAxgU5BlYBDgAAAAAAAAAGGIAKGwAPAAAAAAAA
+AMYN6Qh3AQ8AAAAAAAAABhiUCRsAEAAAAAAAAADGBTkGVgEQAAAAAAAAAMYNfAhmAREAAAAAAAAA
+xg1OCnEAEQAAAAAAAAAGGFkKGwASAAAAAAAAAMYNgwg9ARIAAAAAAAAAxg1lCmwAEwAAAAEA4gIA
+AAEA6AIAAAEA9AIAIAAAAAAAIAAAAAAAIAAAAAAAIAAAAAAAIAAAAAAAIAAAAAAAIAAAAAABAAEA
+VQoAIAAAAAABIAEAbgoAIAAAAAAAIAAAAAAAIAAAAAABAAEAVQoAIAAAAAABIAEAbgoGABwABgBI
+AAcASAAIAAUBCQBMAAoABQELAEwADAAFAQ0ATAAOAAUBDwBMABAABQERAEwAUQC8AWwAWQC8AWwA
+YQC8AWwAaQC8AWwAcQC8AWwAeQC8AWwAgQC8AWwAiQC8AWwAkQC8AWwAmQC8AWwAoQC8AXEAqQC8
+ARsAsQC8ARsACQC8ARsAuQDfBHYAuQD6BH0AKQC8AYIA0QC8AY4A4QC8ARsAEQC8ARsA6QC8ARsA
+GQChBaEA8QCzBaYA+QDKBasAAQHgBbIAEQHzBbgAAQEDBr0ADAC8ARsAAQENBskAGQG8Ac0ADAA5
+BtMAFABWBucAHABiBvsAHAANBgABOQF3BgUBQQGJBmwAFACTBgwBSQGoBhsA8QCwBnEAQQA5BiYB
+UQFWBiwBCQDfBjIBCQDnBjcBCQH3Bj0BOQEIB0EBYQHzBbgAaQGTBgwBSQAtB8kAawCiB1EBewA5
+BlYBiQFWBskAiwARCFwBowA5BlYBswBPCGEBwwA5BlYBywB8CGYB4wCDCD0BDACMCGoBiQGTBgwB
+kwCoCHIB+wA5BlYBCwHpCHcBGwE5BlYBIwF8CGYBOwGDCD0BGQC8ARsA4QG8AWwA6QG8ARsA8QG8
+ARsA+QG8AdMBAQK8AXEAEQK8AWwACAAYAGIACAAcAGcAKQCTAJQALgAzAJQFLgBDAL0FLgAjAL0F
+LgA7AMMFLgBbANoFLgBjAOMFLgArAL0FLgALAEwFLgATAJQFLgAbAL0FQwBrAGcASQCTAJQAYQCb
+AGcAgwCrAGcAwwAjAmcAwwAzAtkBwwAbAqkBwwCbAGcA4wCbAGcA4wAbAqkB4wAjAmcAAwEbAv8C
+AwFDAikDAwEjAmcAAwGbAGcAIwGbAGcAIwEbAk8DIwEjAmcAQwEjAmcAQwGbAGcAQwEbAnkDQwFD
+AikDYwEbArEDYwEjAmcAYwGbAGcAgwEjAmcAgwGbAGcAgwEbAtsDgwFDAikDoAE7AjkCowEjAmcA
+owEbAiEEowGbAGcAwwEjAmcAwwEbAksEwwGbAGcAwwFDAikD4AE7AkkC4wGbAGcA4wEbAnoE4wEj
+AmcAAwIjAmcAAwIbAqQEAwKbAGcAAwJDAikDIAI7AjMDIwIjAmcAIwKbAGcAIwIbAs4EQAI7AjwD
+QwKbAGcAQwIbAvgEQwIjAmcAYwKbAGcAYwIbAiIFYwIjAmcAgAI7AkkCwAI7AqMDAAM7AkkCIAM7
+AgUEQAM7AgUEgAM7Ag4EoAM7Ag4E4AM7AkkCIAQ7AqMDYAQ7AkkCgAQ7AgUEoAQ7AgUE4AQ7Ag4E
+AAU7Ag4ECQBCAgsAUgINAEICDwBCAhEAUgITAEICFQBSAhkAFwQbABcEHQBSAh8AQgIhAFICJQAX
+BCcAFwSJABABRgF8AQIAAQADAAMABwAEAAkABQALAAcADQAIAA8ACgARAAsAAABvAS8AAADuATQA
+AAASAkIAAACwCUQCAAAKCkUDAAAaCkoDAAA4CqwDAAB4ChkEAAB7Ch0EAACNCnUEAAB4ChkEAAB7
+Ch0EAgACAAMAAgADAAUAAQAEAAUAAgAFAAcAAgANAAkAAgARAAsAAgASAA0AAgAWAA8AAgAZABEA
+AQAaABEAAgAcABMAAQAdABMAAgAhABUAAgAkABcAAQAlABcAAgAnABkAAQAoABkAwgDfAPMABIAA
+AAEAAACAFqtKAAAAAAAAfwAAAAQAAAAAAAAAAAAAAAEAsQAAAAAABAAAAAAAAAAAAAAAAQC6AAAA
+AAALAAAAAAAAAAAAAAAKAPUAAAAAAAsAAAAAAAAAAAAAAAoAUgIAAAAAAAAAAAEAAACkCgAABQAE
+AAAAADxNb2R1bGU+AFNUX2I5MGUwMmM1YWE1ZTRhN2E5OTJhMWE3NWM2MjU1Y2ZhLmRsbABSZXNv
+dXJjZXMAU1RfYjkwZTAyYzVhYTVlNGE3YTk5MmExYTc1YzYyNTVjZmEuUHJvcGVydGllcwBTZXR0
+aW5ncwBTY3JpcHRNYWluAFNUX2I5MGUwMmM1YWE1ZTRhN2E5OTJhMWE3NWM2MjU1Y2ZhAFNjcmlw
+dFJlc3VsdHMAbXNjb3JsaWIAU3lzdGVtAE9iamVjdABTeXN0ZW0uQ29uZmlndXJhdGlvbgBBcHBs
+aWNhdGlvblNldHRpbmdzQmFzZQBNaWNyb3NvZnQuU3FsU2VydmVyLlNjcmlwdFRhc2sATWljcm9z
+b2Z0LlNxbFNlcnZlci5EdHMuVGFza3MuU2NyaXB0VGFzawBWU1RBUlRTY3JpcHRPYmplY3RNb2Rl
+bEJhc2UARW51bQBTeXN0ZW0uUmVzb3VyY2VzAFJlc291cmNlTWFuYWdlcgByZXNvdXJjZU1hbgBT
+eXN0ZW0uR2xvYmFsaXphdGlvbgBDdWx0dXJlSW5mbwByZXNvdXJjZUN1bHR1cmUALmN0b3IAZ2V0
+X1Jlc291cmNlTWFuYWdlcgBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQBDdWx0dXJlAGRlZmF1bHRJ
+bnN0YW5jZQBnZXRfRGVmYXVsdABEZWZhdWx0AFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljAERp
+Y3Rpb25hcnlgMgBsaW5lYWdlSWRzAE1haW4ATWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2VkRFRT
+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRpbWUARXhlY3V0YWJsZXMAUmVhZEV4ZWN1dGFi
+bGVzAFRhc2tIb3N0AFByb2Nlc3NEYXRhRmxvd1Rhc2sAdmFsdWVfXwBTdWNjZXNzAEZhaWx1cmUA
+dmFsdWUAZXhlY3V0YWJsZXMAY3VycmVudERhdGFGbG93VGFzawBTeXN0ZW0uUnVudGltZS5WZXJz
+aW9uaW5nAFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBTeXN0ZW0uUmVmbGVjdGlvbgBBc3NlbWJs
+eVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQXNzZW1ibHlDb25m
+aWd1cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBBc3NlbWJseVByb2R1
+Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtB
+dHRyaWJ1dGUAQXNzZW1ibHlDdWx0dXJlQXR0cmlidXRlAEFzc2VtYmx5VmVyc2lvbkF0dHJpYnV0
+ZQBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNB
+dHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAU3lzdGVtLkRpYWdub3N0aWNz
+AERlYnVnZ2VyTm9uVXNlckNvZGVBdHRyaWJ1dGUAVHlwZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRU
+eXBlRnJvbUhhbmRsZQBBc3NlbWJseQBnZXRfQXNzZW1ibHkAU3lzdGVtLkNvbXBvbmVudE1vZGVs
+AEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdl
+bmVyYXRlZEF0dHJpYnV0ZQAuY2N0b3IAU1NJU1NjcmlwdFRhc2tFbnRyeVBvaW50QXR0cmlidXRl
+AFNjcmlwdE9iamVjdE1vZGVsAGdldF9EdHMAVmFyaWFibGVzAGdldF9WYXJpYWJsZXMAVmFyaWFi
+bGUAZ2V0X0l0ZW0ARHRzQ29udGFpbmVyAGdldF9QYXJlbnQAUGFja2FnZQBnZXRfRXhlY3V0YWJs
+ZXMAc2V0X1ZhbHVlAGdldF9WYWx1ZQBTeXN0ZW0uSU8AU3RyZWFtV3JpdGVyAEVudW1lcmF0b3IA
+R2V0RW51bWVyYXRvcgBLZXlWYWx1ZVBhaXJgMgBnZXRfQ3VycmVudABnZXRfS2V5AEludDMyAFN0
+cmluZwBDb25jYXQAVGV4dFdyaXRlcgBXcml0ZUxpbmUATW92ZU5leHQASURpc3Bvc2FibGUARGlz
+cG9zZQBzZXRfVGFza1Jlc3VsdABFeGVjdXRhYmxlRW51bWVyYXRvcgBFeGVjdXRhYmxlAEdldFR5
+cGUAUmVmZXJlbmNlRXF1YWxzAGdldF9DcmVhdGlvbk5hbWUAU3RhcnRzV2l0aABGb3JFYWNoTG9v
+cABEdHNFbnVtZXJhdG9yAGdldF9Jbm5lck9iamVjdABNYWluUGlwZQBNaWNyb3NvZnQuU3FsU2Vy
+dmVyLkR0cy5QaXBlbGluZS5XcmFwcGVyAElEVFNQaXBlbGluZTEwMABJRFRTQ29tcG9uZW50TWV0
+YURhdGFDb2xsZWN0aW9uMTAwAGdldF9Db21wb25lbnRNZXRhRGF0YUNvbGxlY3Rpb24AU3lzdGVt
+LkNvbGxlY3Rpb25zAElFbnVtZXJhdG9yAElEVFNDb21wb25lbnRNZXRhRGF0YTEwMABJRFRTSW5w
+dXRDb2xsZWN0aW9uMTAwAGdldF9JbnB1dENvbGxlY3Rpb24ASURUU0lucHV0MTAwAElEVFNJbnB1
+dENvbHVtbkNvbGxlY3Rpb24xMDAAZ2V0X0lucHV0Q29sdW1uQ29sbGVjdGlvbgBJRFRTSW5wdXRD
+b2x1bW4xMDAAZ2V0X0lEAGdldF9OYW1lAEFkZABJRFRTT3V0cHV0Q29sbGVjdGlvbjEwMABnZXRf
+T3V0cHV0Q29sbGVjdGlvbgBJRFRTT3V0cHV0MTAwAElEVFNPdXRwdXRDb2x1bW5Db2xsZWN0aW9u
+MTAwAGdldF9PdXRwdXRDb2x1bW5Db2xsZWN0aW9uAElEVFNPdXRwdXRDb2x1bW4xMDAASURUU09i
+amVjdE1vZGVsMTAwAFN5c3RlbS5SdW50aW1lLkludGVyb3BTZXJ2aWNlcwBHdWlkQXR0cmlidXRl
+AFR5cGVJZGVudGlmaWVyQXR0cmlidXRlAENvbUltcG9ydEF0dHJpYnV0ZQBDb0NsYXNzQXR0cmli
+dXRlAF9WdGJsR2FwMV8xAERpc3BJZEF0dHJpYnV0ZQBDb21wb25lbnRNZXRhRGF0YUNvbGxlY3Rp
+b24ASUVudW1lcmFibGUARGVmYXVsdE1lbWJlckF0dHJpYnV0ZQBJRFRTT2JqZWN0MTAwAF9WdGJs
+R2FwMV8xMABJbnB1dENvbGxlY3Rpb24AT3V0cHV0Q29sbGVjdGlvbgBfVnRibEdhcDFfMTMASW5w
+dXRDb2x1bW5Db2xsZWN0aW9uAHNldF9JRABwSUQAX1Z0YmxHYXAxXzIAc2V0X05hbWUAcGJzdHJO
+YW1lAElEAE5hbWUAX1Z0YmxHYXAxXzE2AE91dHB1dENvbHVtbkNvbGxlY3Rpb24AU1RfYjkwZTAy
+YzVhYTVlNGE3YTk5MmExYTc1YzYyNTVjZmEuUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2Vz
+AAAAcVMAVABfAGIAOQAwAGUAMAAyAGMANQBhAGEANQBlADQAYQA3AGEAOQA5ADIAYQAxAGEANwA1
+AGMANgAyADUANQBjAGYAYQAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUA
+cwAAHVUAcwBlAHIAOgA6AGUAeABlAGMAcwBPAGIAagAAIVUAcwBlAHIAOgA6AGwAaQBuAGUAYQBn
+AGUASQBkAHMAACNDADoAXAB0AGUAbQBwAFwAdwByAGkAdABlAC4AdAB4AHQAAAcgADoAIAAAG1MA
+UwBJAFMALgBQAGkAcABlAGwAaQBuAGUAAACXZVlCA0q/R4Hvt+mjqi4gAAi3elxWGTTgiQiJhF3N
+gIDMkQMGEhUDBhIZAyAAAQQAABIVBAAAEhkFAAEBEhkECAASFQQIABIZAwYSDAQAABIMBAgAEgwH
+BhUSHQIIDgUgAQESIQUgAQESJQIGCAMGERQEAAAAAAQBAAAABCABAQ4EIAEBCAYAARJdEWEEIAAS
+ZQYgAgEOEmUEBwESFQUgAQERbQgBAAIAAAAAAAMAAAEEIAASeQQgABJ9BiABEoCBHAUgABKAhQQg
+ABIhBCABARwGFRIdAggOAyAAHAUgAgEOAgsgABURgJECEwATAQcVEYCRAggOCyAAFRGAlQITABMB
+BxURgJUCCA4EIAATAAQgABMBBgADDhwcHAMgAAIVBwQSIRKAjRURgJUCCA4VEYCRAggOBSAAEoCp
+BSAAEoCtBCAAEl0FAAICHBwDIAAOBCABAg4KBwMSgK0SJRKAqQQgABIgBSAAEoDFBCAAEigEIAAS
+MAMgAAgHIAIBEwATAQQgABI4BCAAEkAsBxASGBIkEiwSNBI8EkQSgMUSgMUSgMUSgKUSgKUSgMUS
+gMUSgKUSgKUSgKUpAQAkNDEwRTkxRTktMkM0NS00ODdBLTg1MUEtNUIzREZFNzQ3MzI5AAAFIAEB
+El1fAQBaU3lzdGVtLk9iamVjdCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1u
+ZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5AAAIAQAMAAAAAAABHAQoABIg
+CAEA/P///wAAgKssAACApVN5c3RlbS5SdW50aW1lLkludGVyb3BTZXJ2aWNlcy5DdXN0b21NYXJz
+aGFsZXJzLkVudW1lcmF0b3JUb0VudW1WYXJpYW50TWFyc2hhbGVyLCBDdXN0b21NYXJzaGFsZXJz
+LCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVm
+N2YxMWQ1MGEzYQApAQAkMDcwNzUwRjItNjMxRC00RTNFLThGRTUtQkU2QjFDREYyNjMyAAAJAQAE
+SXRlbQAACAEAZgAAAAAACAEAZwAAAAAABCgAEigEKAASOCkBACQ4ODdCRDA2MS04MkQ0LTRGMDYt
+QTIyMi0zMzdENDJFN0Y4OTYAACkBACQ2QUY0MTU4NC03MUYyLTQwMUUtQjEzRS1DNjc4QjkyRDNB
+NUEAAAgBAGoAAAAAAAQoABIwKQEAJDczMEQ3MjJDLTJFMDAtNEM3QS04NjQxLTBEMzc4MzUzQTk0
+NAAAKQEAJDI0MjQ0RDQ4LTI3NjQtNEY3OS04RTMzLTRDOUE3QjhENEUyRAAACAEACwAAAAAACAEA
+DQAAAAAAARMDKAAIAygADikBACQxQzE5RDRGOC0xMDc1LTQyOUEtOUFEOS01N0IyQzNGNzE4ODQA
+ACkBACRFNzAwNzA2Qy1GMjNDLTQwMEEtQkQ2Mi1BQzc2MEIxMUI5ODUAAAQoABJAKQEAJDg5QjhF
+MzA2LTdDMkEtNDcyRi04ODUwLTcyMDJCNERBRjE3QgAAKQEAJEJDOTQyRkVDLTJDRUEtNDY2NS1B
+MjkxLTM4MjAwQTBDOTU5RgAAKQEAJDNDN0ZDQkUwLTgyODctNEI5Ny1CNjMyLTdDNjBDNjNEQUFG
+NAAAKQEAJDRFODUzNTc0LUMyRTMtNENBRS1CNzkxLTJENEE1RDFEMEM5OAAAKQEAJDIwM0UyNEJE
+LTUyMDMtNEM3Ni1BRkM3LTdDODU0NUVCQTFBMAAARwEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12
+NC4wAQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRAuTkVUIEZyYW1ld29yayA0KAEAI1NUX2I5MGUw
+MmM1YWE1ZTRhN2E5OTJhMWE3NWM2MjU1Y2ZhAAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMTUA
+AAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEAABBDAAAAAAAAAAAAAC5D
+AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQwAAAAAAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBt
+c2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAA
+ABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABYYAAA
+sAMAAAAAAAAAAAAAsAM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E7/4A
+AAEAAAABAKtKgBYAAAEAq0qAFj8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBWAGEA
+cgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAAAACw
+BBADAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAOwCAAABADAAMAAwADAAMAA0AGIA
+MAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAFQAXwBiADkAMABl
+ADAAMgBjADUAYQBhADUAZQA0AGEANwBhADkAOQAyAGEAMQBhADcANQBjADYAMgA1ADUAYwBmAGEA
+AABAAA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4ANQA3ADYAMAAuADEAOQAx
+ADEANQAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAFQAXwBiADkAMABlADAA
+MgBjADUAYQBhADUAZQA0AGEANwBhADkAOQAyAGEAMQBhADcANQBjADYAMgA1ADUAYwBmAGEALgBk
+AGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBpAGcA
+aAB0ACAAQAAgACAAMgAwADEANQAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBt
+AGUAAABTAFQAXwBiADkAMABlADAAMgBjADUAYQBhADUAZQA0AGEANwBhADkAOQAyAGEAMQBhADcA
+NQBjADYAMgA1ADUAYwBmAGEALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAA
+AAAAUwBUAF8AYgA5ADAAZQAwADIAYwA1AGEAYQA1AGUANABhADcAYQA5ADkAMgBhADEAYQA3ADUA
+YwA2ADIANQA1AGMAZgBhAAAARAAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAu
+ADAALgA1ADcANgAwAC4AMQA5ADEAMQA1AAAAAABIAA8AAQBBAHMAcwBlAG0AYgBsAHkAIABWAGUA
+cgBzAGkAbwBuAAAAMQAuADAALgA1ADcANgAwAC4AMQA5ADEAMQA1AAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAADAAAAEAzAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C8EFFA47-B775-45C3-B1BB-2C157597E9B2}"
+      DTS:From="Package\(SCR) GetLineageIDs"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\(DFT) Read FlatFile" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\(DFT) Read FlatFile"
+          TopLeft="298,226" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\(SCR) GetLineageIDs"
+          TopLeft="304,120" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="394,162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10,64"
+              Start="0,0"
+              End="-10,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="-4,32" />
+                  <mssgle:LineSegment
+                    End="-6,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6,32"
+                    Point2="-10,32"
+                    Point3="-10,36" />
+                  <mssgle:LineSegment
+                    End="-10,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\(DFT) Read FlatFile">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\(DFT) Read FlatFile\(DCO) Add Data"
+          TopLeft="269,128" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\(DFT) Read FlatFile\(FFSRC) Accounts"
+          TopLeft="255,43" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\(DFT) Read FlatFile\(FFDST) Errors"
+          TopLeft="402,348" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\(DFT) Read FlatFile\(SCR) Populate Error Cols"
+          TopLeft="435,273" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\(DFT) Read FlatFile\(DCNV) Convert To Target Type"
+          TopLeft="268,207" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\(DFT) Read FlatFile\(FFDST) Success"
+          TopLeft="195,300" />
+        <EdgeLayout
+          Id="Package\(DFT) Read FlatFile.Paths[Output 0]"
+          TopLeft="536,315">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-58.5,33"
+              Start="0,0"
+              End="-58.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="-4,16.5" />
+                  <mssgle:LineSegment
+                    End="-54.5,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.5,16.5"
+                    Point2="-58.5,16.5"
+                    Point3="-58.5,20.5" />
+                  <mssgle:LineSegment
+                    End="-58.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Read FlatFile.Paths[Flat File Source Output]"
+          TopLeft="337.5,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10,43"
+              Start="0,0"
+              End="10,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="6,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,21.5"
+                    Point2="10,21.5"
+                    Point3="10,25.5" />
+                  <mssgle:LineSegment
+                    End="10,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Read FlatFile.Paths[Derived Column Output]"
+          TopLeft="347.5,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.5,37"
+              Start="0,0"
+              End="36.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="32.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.5,18.5"
+                    Point2="36.5,18.5"
+                    Point3="36.5,22.5" />
+                  <mssgle:LineSegment
+                    End="36.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Read FlatFile.Paths[Data Conversion Output]"
+          TopLeft="384,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-109,51"
+              Start="0,0"
+              End="-109,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="-4,25.5" />
+                  <mssgle:LineSegment
+                    End="-105,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-105,25.5"
+                    Point2="-109,25.5"
+                    Point3="-109,29.5" />
+                  <mssgle:LineSegment
+                    End="-109,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\(DFT) Read FlatFile.Paths[Data Conversion Error Output]"
+          TopLeft="421.333333333333,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.666666666667,24"
+              Start="0,0"
+              End="114.666666666667,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,5.6986301369863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,5.6986301369863"
+                    Point2="0,9.6986301369863"
+                    Point3="4,9.6986301369863" />
+                  <mssgle:LineSegment
+                    End="110.666666666667,9.6986301369863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.666666666667,9.6986301369863"
+                    Point2="114.666666666667,9.6986301369863"
+                    Point3="114.666666666667,13.6986301369863" />
+                  <mssgle:LineSegment
+                    End="114.666666666667,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.75305338541665,14.6986301369863,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
